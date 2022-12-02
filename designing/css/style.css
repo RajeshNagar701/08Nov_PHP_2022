@@ -1,0 +1,27 @@
+h1,h2,h3{
+			color:red;
+			background-color:yellow;
+			text-align:center; 
+			text-decoration:underline;
+		}
+		
+		.raj{
+			color:pink;
+			background-color:blue;
+		}
+		
+		.patel{
+			text-decoration:underline;
+		}
+		
+		#nagar{
+			color:yellow;
+			background-color:blue;
+		}
+		
+		h4.test{
+			text-transform:uppercase;
+			text-align:center;
+			background-color:pink;
+		}
+		
