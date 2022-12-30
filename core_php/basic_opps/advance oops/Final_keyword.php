@@ -16,7 +16,7 @@ final class a
 		echo "This is final method";
 	}
 }
-class b extends a
+class b extends a // give error 
 {
 	function test()
 	{

@@ -1,12 +1,4 @@
-﻿<?php
-if(isset($_SESSION['aid']))
-{
-	echo "<script>
-	window.location='dashboard';
-	</script>";
-}
-?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -71,23 +63,22 @@ if(isset($_SESSION['aid']))
         </div>
              <div class="row">
             <div class="col-md-12">
-              <form action="" method="post">
+              
 			   <div class="form-group">
 					<label>Enter Emai</label>
-					<input class="form-control" type="text" name="anm" />
+					<input class="form-control" type="email" />
 					<p class="help-block">Help text here.</p>
 				</div>
 				 <div class="form-group">
 					<label>Enter Password</label>
-					<input class="form-control" type="password" name="apass"  />
+					<input class="form-control" type="password" />
 					<p class="help-block">Help text here.</p>
 				</div>
 				<div class="form-group">
 							
-					<input type="submit" name="submit" class="btn btn-primary" />
+					<input type="submit" class="btn btn-primary" type="text" />
 					
 				</div>
-			</form>	
             </div>
 
         </div>

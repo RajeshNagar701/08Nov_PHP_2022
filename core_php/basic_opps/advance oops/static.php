@@ -30,7 +30,6 @@ class xyz extends abc
 		
 	}
 }
-
 echo abc::$my_static;  
  
  

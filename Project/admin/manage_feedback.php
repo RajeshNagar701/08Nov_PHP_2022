@@ -5,7 +5,7 @@ include_once('header.php');
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">Manage User</h4>
+                <h4 class="header-line">Manage Feedback</h4>
                 
             </div>
 
@@ -15,39 +15,35 @@ include_once('header.php');
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Manage User
+                             Manage Feedback
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Customer id</th>
+                                            <th>Feedback id</th>
+											<th>Cust Id</th>
                                             <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Gender</th>
-											<th>Languages</th>
-											<th>Edit</th>
+                                            <th>Subject</th>
+                                            <th>Feedback</th>
 											<th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 									
 									<?php
-									if(!empty($customer_arr))
+									if(!empty($feedback_arr))
 									{
-										foreach($customer_arr as $data)
+										foreach($feedback_arr as $data)
 										{
 									?>
                                         <tr >
-                                            <td><?php echo $data->cust_id?></td>
+                                            <td><?php echo $data->feed_id?></td>
+											<td><?php echo $data->cust_id?></td>
 											<td><?php echo $data->name?></td>
-											<td><?php echo $data->unm?></td>
-											<td><?php echo $data->pass?></td>
-											<td><?php echo $data->gen?></td>
-											<td><?php echo $data->lag?></td>
-                                            <td><a href="#" class="btn btn-primary">Edit</a></td>
+											<td><?php echo $data->subject?></td>
+											<td><?php echo $data->feedback?></td>
 											<td><a href="#" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                     <?php

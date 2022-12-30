@@ -48,8 +48,8 @@
           <div class="main-nav d-none d-lg-block">
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="shop.php">Store</a></li>
+                <li class="active"><a href="index">Home</a></li>
+                <li><a href="shop">Store</a></li>
                 <li class="has-children">
                   <a href="#">Dropdown</a>
                   <ul class="dropdown">
@@ -68,8 +68,23 @@
                     
                   </ul>
                 </li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+				<?php
+				if(isset($_SESSION['uid']))
+				{
+				?>
+					<li><a href="logout">Logout</a></li>
+					<li><a href="logout">Hi .. <?php echo $_SESSION['name']?></a></li>
+				<?php
+				}
+				else
+				{
+				?>
+					<li><a href="login">Login</a></li>
+				<?php	
+				}
+				?>
               </ul>
             </nav>
           </div>

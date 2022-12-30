@@ -1,8 +1,6 @@
 <?php
 
 // use ful in reduce reusable code and remove inheritance multiple
-
-
 trait abc
 {
 	public function test()
@@ -17,7 +15,7 @@ trait xyz
 		echo "this is sample method";
 	}
 }
-class c  
+class c
 {
 	use abc,xyz;  // multiple inherit 
 }

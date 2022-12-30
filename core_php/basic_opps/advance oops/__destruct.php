@@ -16,7 +16,7 @@ class a
     public function __construct()
     {
         echo "I'm alive! <br>";    
-       
+	}
    
     public function __destruct()// object() destroy & call in last
     {

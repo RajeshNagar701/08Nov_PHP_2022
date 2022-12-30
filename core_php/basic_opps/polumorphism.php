@@ -31,9 +31,9 @@ class abc
 $obj=new xyz;
 $obj->sum(5,10);
 $obj->sum(5,10,5);
-
-Note : overloading not posible in PHP 
 */
+//Note : overloading not posible in PHP 
+
 
 
 //=> Overriding When same methods defined in parents and child class 
@@ -54,7 +54,7 @@ class xyz extends abc
 	
 	function sum($a,$b)
 	{
-		abc::sum(5,7);
+		abc::sum(5,8);
 		echo $a*$b;
 	}
 }
@@ -62,3 +62,5 @@ class xyz extends abc
 $obj=new xyz;
 $obj->sum(5,10);
 
+
+?>

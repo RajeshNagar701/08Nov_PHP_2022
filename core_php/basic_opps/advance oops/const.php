@@ -12,7 +12,6 @@ If we are inside the class then values of the constants can be get using self ke
 but accessing the value outside the class you have to use Scope Resolution Operator.
 we don't need to take object for const class we can call without object
 visiblity all time public must
-
 */
 class abc
 {
@@ -20,7 +19,7 @@ class abc
 	
 	function display()
 	{
-		//echo self::my_const;  // foo::$my_static;
+		//echo self::my_const;  
 		echo abc::my_const;
 	}
 }
@@ -28,7 +27,7 @@ class xyz extends abc
 {
 	public function display2()
 	{
-		//echo parent::$my_const;
+		//echo parent::my_const;
 		echo abc::my_const;
 	}
 }

@@ -46,11 +46,12 @@ Objects of a class are created using the new keyword.
 */
 
 /*
+$c=0;
 function simple()
 {
 	$a=10;
 	$b=20;
-	echo $a+$b;
+	echo $c=$a+$b;
 }
 
 simple();
@@ -66,15 +67,16 @@ class abc
 	function sum()
 	{
 		$c=10;
-		echo $this->a+$this->b+$c;
+		echo $this->a+$this->b+$c."<br>";
 	}
 	function multi()
 	{
 		$this->sum();
-		echo $this->a*$this->b;
+		echo $this->a*$this->b."<br>";
 	}
 }
 
-$raj=new abc;
-$raj->multi();
-$raj->$a;
+$obj=new abc;
+//$obj->sum();
+$obj->multi();
+echo $obj->a;

@@ -1,3 +1,18 @@
+
+<?php
+if(isset($_SESSION['aid']))
+{
+	
+}
+else
+{
+	echo "<script>
+	window.location='admin';
+	</script>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -36,7 +51,7 @@
             </div>
 
             <div class="right-div">
-                <a href="#" class="btn btn-danger pull-right">LOG ME OUT</a>
+                <a href="adminlogout" class="btn btn-danger pull-right">LOG ME OUT</a>
             </div>
         </div>
     </div>
@@ -47,25 +62,25 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="index.html" class="menu-top-active">DASHBOARD</a></li>
+                            <li><a href="dashboard" class="menu-top-active">DASHBOARD</a></li>
                            
                            
                             <li>
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Category<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add_category.php">Add Category</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="manage_category.php">Manage Category</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add_category">Add Category</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="manage_category">Manage Category</a></li>
                                 </ul>
                             </li>
 							 <li>
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">Product<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add_product.php">Add Product</a></li>
-                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="manage_product.php">Manage Product</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add_product">Add Product</a></li>
+                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="manage_product">Manage Product</a></li>
                                 </ul>
                             </li>
-                            <li><a href="manage_user.php.html">Manage User</a></li>
-                             
+                            <li><a href="manage_user">Manage User</a></li>
+                            <li><a href="manage_feedback">Manage Feedback</a></li> 
 
                         </ul>
                     </div>
