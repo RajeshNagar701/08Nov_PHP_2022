@@ -75,7 +75,7 @@
 				{
 				?>
 					<li><a href="logout">Logout</a></li>
-					<li><a href="logout">Hi .. <?php echo $_SESSION['name']?></a></li>
+					<li><a href="profile">Hi .. <?php echo $_SESSION['name']?></a></li>
 				<?php
 				}
 				else

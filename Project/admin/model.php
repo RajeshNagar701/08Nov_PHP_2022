@@ -69,6 +69,21 @@ class model
 		return $run;
 	}
 	
+	function select_where_join($tbl1,$tbl2,$on,$arr)
+	{
+		$sel="select * from $tbl1 join $tbl2 on $on where 1=1"; // query continue
+		$i=0;
+		$arr_key=array_keys($arr);
+		$arr_value=array_values($arr);
+		foreach($arr as $w)
+		{
+			$sel.=" and $arr_key[$i]='$arr_value[$i]'";
+			$i++;
+		}
+		$run=$this->conn->query($sel);  // run on db
+		return $run;
+	}
+	
 	
 	function update()
 	{
