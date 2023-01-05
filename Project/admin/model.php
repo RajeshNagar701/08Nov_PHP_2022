@@ -85,14 +85,53 @@ class model
 	}
 	
 	
-	function update()
+	function update($tbl,$data,$where)
 	{
-		
+		$upd="update $tbl set"; // query continue
+		$i=0;
+		$arr_key=array_keys($data);
+		$arr_value=array_values($data);
+
+		$count=count($data);
+		foreach($data as $w)
+		{
+			if($count==$i+1)
+			{
+				$upd.=" $arr_key[$i]='$arr_value[$i]'";
+			}
+			else
+			{
+				$upd.=" $arr_key[$i]='$arr_value[$i]',";
+				$i++;
+			}	
+			
+		}
+		$upd.=" where 1=1"; // query continue
+		$j=0;
+		$warr_key=array_keys($where);
+		$warr_value=array_values($where);
+		foreach($where as $w)
+		{
+			$upd.=" and $warr_key[$j]='$warr_value[$j]'";
+			$j++;
+		}
+		$run=$this->conn->query($upd);  // run on db
+		return $run;
 	}
 	
-	function delete()
+	function delete($tbl,$where)
 	{
-		
+		$del="delete from $tbl where 1=1"; // query continue
+		$i=0;
+		$arr_key=array_keys($where);
+		$arr_value=array_values($where);
+		foreach($where as $w)
+		{
+			$del.=" and $arr_key[$i]='$arr_value[$i]'";
+			$i++;
+		}
+		$run=$this->conn->query($del);  // run on db
+		return $run;
 	}
 	
 }

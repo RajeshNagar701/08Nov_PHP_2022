@@ -80,9 +80,47 @@ class control extends model   // step 2
 			include_once('manage_user.php');
 			break;
 			
+			case '/delete':
+			if(isset($_REQUEST['deluidbtn']))
+			{
+				$uid=$_REQUEST['deluidbtn'];
+				$where=array("uid"=>$uid);
+				
+				// img del
+				$res=$this->select_where('customer',$where);
+				$fetch=$res->fetch_object();
+				$old_file=$fetch->file;
+				
+				$run=$this->delete('customer',$where);
+				if($run)
+				{
+					unlink('../website/images/upload/customer/'.$old_file);	
+					echo "<script>
+						alert('Delete Success');
+						window.location='manage_user';
+						</script>";
+				}
+			}
+			
+			if(isset($_REQUEST['delfeed_idbtn']))
+			{
+				$feed_id=$_REQUEST['delfeed_idbtn'];
+				$where=array("feed_id"=>$feed_id);
+				$run=$this->delete('feedback',$where);
+				if($run)
+				{
+					echo "<script>
+						alert('Delete Success');
+						window.location='manage_feedback';
+						</script>";
+				}
+			}
+			break;
+			
+			
 			case '/manage_feedback':
 			//$feedback_arr=$this->select('feedback');
-			$feedback_arr=$this->select_join2('customer','feedback','customer.cust_id=feedback.cust_id');
+			$feedback_arr=$this->select_join2('customer','feedback','customer.uid=feedback.uid');
 			include_once('manage_feedback.php');
 			break;
 			

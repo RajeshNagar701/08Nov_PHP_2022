@@ -132,6 +132,62 @@ class control extends model   // step 2
 				$where=array("uid"=>$uid);
 				$run=$this->select_where('customer',$where);
 				$fetch=$run->fetch_object();
+				
+				
+				if(isset($_REQUEST['submit']))
+				{
+					$name=$_REQUEST['name'];
+					$mobile=$_REQUEST['mobile'];
+					$unm=$_REQUEST['unm'];
+					$gen=$_REQUEST['gen'];
+					$lag_arr=$_REQUEST['lag'];
+					$lag=implode(",",$lag_arr);
+					$cid=$_REQUEST['cid'];
+					date_default_timezone_set("asia/calcutta");
+					$updated_dt=date("Y-m-d H:i:s");
+					
+					if($_FILES['file']['size']>0)
+					{
+						$file=$_FILES['file']['name'];
+						$path='images/upload/customer/'.$file;
+						$tmp_file=$_FILES['file']['tmp_name'];
+						move_uploaded_file($tmp_file,$path);
+						
+						$data=array("name"=>$name,"mobile"=>$mobile,"unm"=>$unm,"gen"=>$gen
+					,"lag"=>$lag,"cid"=>$cid,"file"=>$file,"updated_dt"=>$updated_dt);
+						
+						$old_file=$fetch->file;
+						
+						$res=$this->update('customer',$data,$where);	
+						if($res)
+						{
+							unlink('images/upload/customer/'.$old_file);
+							echo "<script>
+							alert('Update Success');
+							window.location='profile';
+							</script>";
+						}
+						
+					}
+					else
+					{
+						$data=array("name"=>$name,"mobile"=>$mobile,"unm"=>$unm,"gen"=>$gen
+					,"lag"=>$lag,"cid"=>$cid,"updated_dt"=>$updated_dt);
+					
+						$res=$this->update('customer',$data,$where);	
+						if($res)
+						{
+							echo "<script>
+							alert('Update Success');
+							window.location='profile';
+							</script>";
+						}
+						
+					}
+
+				}					
+				
+				
 			}
 			include_once('edituser.php');
 			break;
@@ -146,8 +202,7 @@ class control extends model   // step 2
 				window.location='index';
 				</script>";
 			break;
-			
-			
+
 			default:
 			include_once('pnf.php');
 			break;

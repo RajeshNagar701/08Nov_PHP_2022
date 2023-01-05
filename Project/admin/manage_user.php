@@ -22,7 +22,8 @@ include_once('header.php');
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Customer id</th>
+											<th>Profile</th>
+                                            <th>id</th>
                                             <th>Name</th>
                                             <th>Username</th>
                                             <th>Password</th>
@@ -41,14 +42,15 @@ include_once('header.php');
 										{
 									?>
                                         <tr >
-                                            <td><?php echo $data->cust_id?></td>
+											<td><img src="../website/images/upload/customer/<?php echo $data->file?>" width="50px" height="50px"></td>
+                                            <td><?php echo $data->uid?></td>
 											<td><?php echo $data->name?></td>
 											<td><?php echo $data->unm?></td>
 											<td><?php echo $data->pass?></td>
 											<td><?php echo $data->gen?></td>
 											<td><?php echo $data->lag?></td>
                                             <td><a href="#" class="btn btn-primary">Edit</a></td>
-											<td><a href="#" class="btn btn-danger">Delete</a></td>
+											<td><a href="delete?deluidbtn=<?php echo $data->uid?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                     <?php
 										}

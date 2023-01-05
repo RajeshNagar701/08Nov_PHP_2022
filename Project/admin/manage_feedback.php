@@ -40,11 +40,11 @@ include_once('header.php');
 									?>
                                         <tr >
                                             <td><?php echo $data->feed_id?></td>
-											<td><?php echo $data->cust_id?></td>
+											<td><?php echo $data->uid?></td>
 											<td><?php echo $data->name?></td>
 											<td><?php echo $data->subject?></td>
 											<td><?php echo $data->feedback?></td>
-											<td><a href="#" class="btn btn-danger">Delete</a></td>
+											<td><a href="delete?delfeed_idbtn=<?php echo $data->feed_id?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                     <?php
 										}

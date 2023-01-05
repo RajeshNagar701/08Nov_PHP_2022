@@ -68,7 +68,7 @@ include_once('header.php');
 					{
 					?>
 					<div class="form-check">
-					  <input type="radio" class="form-check-input" id="radio1" name="gen" value="Male" checked >Male
+					  <input type="radio" class="form-check-input" id="radio1" name="gen" value="Male"  checked>Male
 					  <label class="form-check-label" for="radio1"></label>
 					</div>
 					<div class="form-check">
@@ -85,7 +85,7 @@ include_once('header.php');
 					  <label class="form-check-label" for="radio1"></label>
 					</div>
 					<div class="form-check">
-					  <input type="radio" class="form-check-input" id="radio1" name="gen" value="Female" >Female
+					  <input type="radio" class="form-check-input" id="radio1" name="gen" value="Female" checked>Female
 					  <label class="form-check-label" for="radio1"></label>
 					</div>
 				  
@@ -97,13 +97,14 @@ include_once('header.php');
 				  
                     <label for="Mobile" class="text-black">Lang <span class="text-danger">*</span></label>
                     
-					
+					<?php
+					$lag=$fetch->lag;
+					$lag_arr=explode(",",$lag);
+					?>
 					
 					<div class="form-check">
 					  <input type="checkbox" class="form-check-input" id="radio1" name="lag[]" value="Hindi" 
-					  <?php
-					$lag=$fetch->lag;
-					$lag_arr=explode(",",$lag);
+					<?php 
 					if(in_array("Hindi",$lag_arr))
 					{
 						echo "checked";
@@ -114,8 +115,6 @@ include_once('header.php');
 					 <div class="form-check">
 					  <input type="checkbox" class="form-check-input" id="radio1" name="lag[]" value="English" 
 					  <?php
-					$lag=$fetch->lag;
-					$lag_arr=explode(",",$lag);
 					if(in_array("English",$lag_arr))
 					{
 						echo "checked";
@@ -126,8 +125,6 @@ include_once('header.php');
 					 <div class="form-check">
 					  <input type="checkbox" class="form-check-input" id="radio1" name="lag[]" value="Gujarati" 
 					  <?php
-					$lag=$fetch->lag;
-					$lag_arr=explode(",",$lag);
 					if(in_array("Gujarati",$lag_arr))
 					{
 						echo "checked";
