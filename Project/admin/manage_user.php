@@ -49,7 +49,7 @@ include_once('header.php');
 											<td><?php echo $data->pass?></td>
 											<td><?php echo $data->gen?></td>
 											<td><?php echo $data->lag?></td>
-                                            <td><a href="#" class="btn btn-primary">Edit</a></td>
+                                            <td><a href="status?statusuidbtn=<?php echo $data->uid?>" class="btn btn-primary"><?php echo $data->status?></a></td>
 											<td><a href="delete?deluidbtn=<?php echo $data->uid?>" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                     <?php

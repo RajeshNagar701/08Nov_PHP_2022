@@ -117,6 +117,47 @@ class control extends model   // step 2
 			}
 			break;
 			
+			case '/status':
+			if(isset($_REQUEST['statusuidbtn']))
+			{
+				$uid=$_REQUEST['statusuidbtn'];
+				$where=array("uid"=>$uid);
+	
+				$run=$this->select_where('customer',$where);
+				$fetch=$run->fetch_object();
+				$status=$fetch->status;
+				if($status=="Block")
+				{
+					$data=array("status"=>"Unblock");
+					$res=$this->update('customer',$data,$where);
+					if($res)
+					{
+						echo "<script>
+							alert('Unblock Success');
+							window.location='manage_user';
+							</script>";
+					}
+				}
+				else
+				{
+					$data=array("status"=>"Block");
+					$res=$this->update('customer',$data,$where);
+					if($res)
+					{
+						unset($_SESSION['unm']);
+						unset($_SESSION['uid']);
+						unset($_SESSION['name']);
+						
+						echo "<script>
+							alert('Block Success');
+							window.location='manage_user';
+							</script>";
+					}
+				}
+			}
+			
+			break;
+			
 			
 			case '/manage_feedback':
 			//$feedback_arr=$this->select('feedback');

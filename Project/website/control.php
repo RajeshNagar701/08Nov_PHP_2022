@@ -95,20 +95,32 @@ class control extends model   // step 2
 				$chk=$run->num_rows; // check rows wise condition => ans givbe in true or false
 				if($chk==1)
 				{
-					$fetch=$run->fetch_object(); // if only for single data
 					
-					$_SESSION['unm']=$fetch->unm;
-					$_SESSION['uid']=$fetch->uid;
-					$_SESSION['name']=$fetch->name;
-					echo "<script>
-					alert('Login Success');
-					window.location='index';
-					</script>";
+					$fetch=$run->fetch_object(); // if only for single data
+					$status=$fetch->status;
+					
+					if($status=="Unblock")
+					{
+						$_SESSION['unm']=$fetch->unm;
+						$_SESSION['uid']=$fetch->uid;
+						$_SESSION['name']=$fetch->name;
+						echo "<script>
+						alert('Login Success');
+						window.location='index';
+						</script>";
+					}
+					else
+					{
+						echo "<script>
+						alert('Your account blocked so login Failed');
+						window.location='login';
+						</script>";
+					}
 				}
 				else
 				{
 					echo "<script>
-					alert('Login failed');
+					alert('Login failed due wrong creadantial');
 					</script>";
 				}	
 			}
@@ -196,7 +208,7 @@ class control extends model   // step 2
 			case '/logout':
 			unset($_SESSION['unm']);
 			unset($_SESSION['uid']);
-			unset($_SESSION['name	']);
+			unset($_SESSION['name']);
 			echo "<script>
 				alert('Logout Success');
 				window.location='index';
