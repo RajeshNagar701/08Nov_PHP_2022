@@ -1,0 +1,32 @@
+<!--
+jQuery css() Method
+The css() method sets or returns one or more style properties for the selected elements.
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").css("background-color", "yellow");
+	$("p").css("color", "blue");
+	$("p").css("font-size", "32px");
+	$("p").css("text-transform", "Uppercase");
+	
+  });
+});
+</script>
+</head>
+<body>
+<p style="background-color:#ff0000">This is a paragraph.</p>
+<p style="background-color:#00ff00">This is a paragraph.</p>
+<p style="background-color:#0000ff">This is a paragraph.</p>
+<p>This is a paragraph.</p>
+
+<button>Set background-color of p</button>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!--
+
+(selector).animate({styles},speed,easing,callback)
+
+onl nemeric value
+
+backgroundPositionX
+backgroundPositionY
+borderWidth
+borderBottomWidth
+borderLeftWidth
+borderRightWidth
+borderTopWidth
+borderSpacing
+margin
+marginBottom
+marginLeft
+marginRight
+marginTop
+opacity
+outlineWidth
+padding
+paddingBottom
+paddingLeft
+paddingRight
+paddingTop
+height
+width
+maxHeight
+maxWidth
+minHeight
+minWidth
+fontSize
+bottom
+left
+right
+top
+letterSpacing
+wordSpacing
+lineHeight
+textIndent
+
+You can even specify a property's animation value as "show", "hide", or "toggle":
+
+
+Only numeric values can be animated (like "margin:30px"). String values cannot be animated 
+(like "background-color:red"), except for the strings "show", "hide" and "toggle". 
+These values allow hiding and showing the animated element.
+speed	Optional. Specifies the speed of the animation. Default value is 400 milliseconds
+Possible values:
+
+
+
+
+
+milliseconds (like 100, 1000, 5000, etc)
+"slow"
+"fast"
+
+
+easing	Optional. Specifies the speed of the element in different points of the animation. Default value is "swing". Possible values:
+"swing" - moves slower at the beginning/end, but faster in the middle
+"linear" - moves in a constant speed
+Tip: More easing functions are available in external plugins.
+
+callback	Optional. A function to be executed after the animation completes. To learn more about callback, please read our jQuery Callback chapter
+
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#test").animate({left: '750px',opacity: '0.5',height: '150px',width: '150px',fontSize: '3em'}
+	, "slow"
+	,"linear"
+	,function()
+	{
+      alert("The paragraph is now hidden");
+    });
+	
+	
+	
+	
+  });
+});
+</script> 
+</head>
+<body>
+
+<button>Start Animation</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div id="test" style="background:#98bf21;height:100px;width:100px;position:absolute; color:red">Hello</div>
+
+</body>
+</html>

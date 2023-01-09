@@ -1,0 +1,54 @@
+body{
+	margin:0;font:1.0em cambria;background:rgb(220,220,220);padding-bottom:50px;
+
+}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:linear-gradient(rgb(200,200,200), rgb(130,130,130));}
+::-webkit-scrollbar-thumb{
+	background:rgb(100,100,100);
+	border-radius:20px;
+}
+::-webkit-scrollbar-thumb:hover{
+	background:rgb(85,85,85);
+}
+::-webkit-scrollbar-button{background:black;}
+
+h1{font:bold 25px verdana;padding:10px;background:darkgray;
+	margin:0;margin-bottom:15px;color:white}
+h1 i{color:green;}
+#diaporama{
+	margin:auto;overflow:hidden;width:900px;height:550px;
+	box-shadow:0 0 30px black;
+}
+
+#options{width:85%;margin:5px auto;overflow:auto;}
+#options h3{
+	margin:5px 0;font-size:1.5em;padding:5px;
+}
+	#options form{}
+	#options #fields{display:flex;flex-direction:row;justify-content:flex-start;}
+	#options #fields>span{margin:5px;padding:3px;}
+	#options #fields>span label, #options #fields>span span{display:block;margin-left:5px;}
+	#options #fields>span label{
+		padding:4px 2px;font-family:sans-serif;
+		margin:4px 0;
+	}
+	#options #fields>span>label{
+		border-bottom:2px solid black;
+	}
+	#options #fields>span>span{margin-left:25px;}
+	#options #fields input[type="number"], #options #fields select{
+		width:150px;height:30px;padding:0;text-indent:5px;border-radius:5px;
+		border:0;
+	}
+	#options #span-transition{flex-grow:10;}
+	#options #span-transition div{display:flex;}
+
+	#options #buttons{display:flex;justify-content: center;}
+	#options form button{
+		border:0;border-radius:5px;color:white;background:black;
+		width:100px;height:30px;font-size:1em;clear:both;margin:5px;
+	}
+	#options form button:hover{background:rgb(50,50,50)}
+
+	#images{display:none;}

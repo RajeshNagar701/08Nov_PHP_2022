@@ -1,0 +1,90 @@
+
+
+<!--
+
+JavaScript functions are used to perform operations. 
+We can call JavaScript function many times to reuse the code.
+
+Advantage of JavaScript function
+There are mainly two advantages of JavaScript functions.
+
+Code reusability: We can call a function several times so it save coding.
+Less coding: It makes our program compact. We don’t need to write many lines of code each time to perform a common task.
+
+-->
+
+
+
+<html>
+   <head>   
+      <script type = "text/javascript">
+         
+		  
+		
+		/*
+		 var a=10;
+		 var b=20;
+		 var sum=a+b;
+		 document.write ("sum of a & b are : " + sum);
+		*/
+		 
+		// simple function
+		
+		/*
+		function sum() 
+		 {
+		     var a=10;
+			 var b=20;
+			 var sum=a+b;
+			 document.write("sum of a & b are : " + sum);
+         }
+		sum();
+		*/
+		
+		// parameter function
+		
+   		/*
+		 function parameter(a,b,name) 
+		 {
+		    var sum;
+			sum=a+b;
+            document.write (name + ": sum of a & b are : " + sum + "<br>");
+         }
+		parameter(5,10,'Khushbu');
+	
+		parameter(9,10,'Nirav');
+		*/
+		
+		// return function 
+		
+		function sayhi_return(a,b) 
+		 {
+		    var sum;
+			sum=a+b;
+            return sum;
+         }
+		document.write(sayhi_return(7,8))
+		
+		// default value
+		
+		 
+		 function parameter(a=0,b=0) 
+		 {
+		    var sum;
+			sum=a+b;
+            document.write ("sum of a & b are : " + sum + "<br>");
+         }
+		 parameter(8,10);
+		 parameter(5,7);
+		 parameter(5);
+		
+      </script>
+      
+   </head>
+   
+   <body>
+      <form>
+         
+      </form>      
+   </body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>MixSlide - documentation</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+	<h1 id="title"><strong>MixSlide</strong> - <i>Documentation</i></h1>
+	<section id="summary">
+		<section id="code-infos">
+			<h2>Code informations</h3>
+			<dl>
+				<dt>Author</dt>
+				<dd>NKOUANANG KEPSEU Vivian Porel</dd>
+				<dt>Languages</dt>
+				<dd>HTML - CSS - <strong>JavaScript (<i>JQuery</i>)</strong></dd>
+				<details>
+					<summary>Details</summary>
+					A plug-in developped to make slideshow implementation easy in web sites and web applications
+				</details>
+			</dl>
+		</section>
+		<h2>Summary</h2>
+		<ol>
+			<li><a href="#basic-html-code">Code HTML</a></li>
+			<li><a href="#css-style">Style CSS</a></li>
+			<li><a href="#script">Script d'insertion</a></li>
+			<li>
+				<a href="#options">Options du plug-in</a>
+				<ul>
+					<li>
+						<a href="##options">Options simples</a><br>
+						<i>Autoplay</i> - <i>Fullscreen</i>
+					</li>
+					<li>
+						<a href="##options">Options complexes</a><br>
+						<i>Labels</i> - <i>Transitions</i> - <i>Controls</i> - <i>Thumbs (thumbnails)</i>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#transitions">Transitions</a></li>
+		</ol>
+		<center><strong>#mixSlide</strong></center>
+	</section>
+	<section id="content">
+		<div id="basic-html-code" class="article">
+			<h3>Code HTML</h3>
+			<img src="images/basic-html-code.JPG"/>
+			<ul>
+				<li><i>First</i><br>
+					Vous devez inclure dans votre document les fichiers du plug-in (mixSlide.css & mixSlide.js). Sans oublier la librairie javascript qui est dans le dossier src si vous ne l'avez pas
+				</li>
+				<li><i>Second</i><br> 
+					La division contenant les images doit avoir un structure particulière pour pouvoir être gérée par le Plug-in.
+					<ul>
+						<li>Chaque image doit etre dans un division comme le montre l'image ci-dessus</li>
+						<li>A côté de l'image une balise "p" pour le label. Ceci est facultatif si vous n'en avez pas besoin</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="css-style" class="article">
+			<h3>Style CSS</h3>
+			<p>Vous pouvez personnaliser le plug-in en changeant son apparence. Voici les selecteurs CSS à utiliser pour ce faire</p>
+			<table cellpadding="2"cellspacing="1">
+				<thead>
+					<tr>
+						<th>Selecteur</th>
+						<th>Element</th>
+						<th>Propriétés changeables</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>.mixSlide-frame.fullscreen</td>
+						<td>L'overlay dans le mode fullscreen</td>
+						<td>background:rgba(0,0,0,.7)</td>
+					</tr>
+					<tr>
+						<td>.mixSlide-container</td>
+						<td>Container</td>
+						<td>background:black</td>
+					</tr>
+					<tr>
+						<td>.mixSlide-images p</td>
+						<td>Labels des images</td>
+						<td>Toutes les propriétés pour du texte (font, color, ...)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="script" class="article">
+			<h3>Script d'insertion</h3>
+			<img src="images/script.JPG"/>
+			<p>
+				Ceci est un exemple. Il est bien sûr possible d'ajouter dd'autres options. Celles-ci 
+				sont présentées dans la partie qui suit;
+			</p>
+		</div>
+		<div id="options" class="article">
+			<h3>Options</h3>
+			<h4>Options simples</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Option</th>
+						<th>Description</th>
+						<th>valeurs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>fullscreen</td>
+						<td>charger le slide en plein écran</td>
+						<td>true | false</td>
+					</tr>
+					<tr>
+						<td>autoplay</td>
+						<td>charger le slide en avec le diaporama lancé</td>
+						<td>true | false</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Options complexes (en objets)</h4>
+			<i>Exemple</i>
+			<pre>
+				transition : {
+					name : "slices",
+					count : 10
+				}
+			</pre>
+			<ul>
+				<li>
+					<strong>Labels :</strong> Textes associées aux images si vous les avez mis dans le code HTML
+					<ul>
+						<li>active (true | false)</li>
+						<li>position ("top" | "bottom" | "top-left" | "top-right" | "bottom-left" | "bottom-right")</li>
+					</ul>
+				</li>
+				<li>
+					<strong>Controls :</strong> Les boutons de control (next, prev, pause, play, fullscreen)
+					<ul>
+						<li>active (true | false)</li>
+						<li>position ("top-left" | "top-right" | "bottom-left" | "bottom-right")</li>
+					</ul>
+				</li>
+				<li>
+					<strong>thumbs :</strong> Les images en miniature
+					<ul>
+						<li>active (true | false)</li>
+						<li>position ("top-left" | "top-right" | "bottom-left" | "bottom-right")</li>
+					</ul>
+				</li>
+				<li>
+					<strong>transition :</strong> Définir la transition à utiliser. LEs attributs ici dépendent de la transition choisie
+					<ul>
+						<li>name : nom_de_la_transition (la liste dans le section d'après)</li>
+						<li>... autres propriétés ....</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="transitions" class="article">
+			<h3>Transitions</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Nom transition</th>
+						<th>Description</th>
+						<th>Propriétés<br>nom : <br>-description<br>-valeur par defaut<br>-autres valeurs</th>
+						<th>Exemple</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>random</td>
+						<td>Laisser le script choisir la transition à utiliser</td>
+						<td>
+							<ul>
+								<li>constant
+									<ul>
+										<li>Une meme transition durant tout le diaporama ou changement pour chaque image</li>
+										<li>false</li>
+										<li>true | false</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "random",
+		constant : true
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>fade</td>
+						<td>variation opacité</td>
+						<td>
+							Aucune
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "fade"
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>slide</td>
+						<td>Déplacement image entiere</td>
+						<td>
+							<ul>
+								<li>direction
+									<ul>
+										<li>Direction du déplacement</li>
+										<li>"horizontal"</li>
+										<li>"horizontal" | "vertical"</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "slide",
+		direction : "vertical"
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>slices</td>
+						<td>Découpage de l'image en lamelles et deplacement des lamelles</td>
+						<td>
+							<ul>
+								<li>direction
+									<ul>
+										<li>Direction du déplacement</li>
+										<li>"horizontal"</li>
+										<li>"horizontal" | "vertical"</li>
+									</ul>
+								</li>
+								<li>count
+									<ul>
+										<li>Nombre de lamelles</li>
+										<li>4</li>
+										<li>un entier (un nombre trop grand (> 50) peut ralentir le script)</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "slices",
+		direction : "horizontal",
+		count : 20
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>tiles</td>
+						<td>Découpage de l'image en carreaux et deplacement des carreaux</td>
+						<td>
+							<ul>
+								<li>random
+									<ul>
+										<li>Deplacement aléatoire pour chaque carreau</li>
+										<li>false</li>
+										<li>true | false</li>
+									</ul>
+								</li>
+								<li>count
+									<ul>
+										<li>Nombre de carreaux</li>
+										<li>16</li>
+										<li>un carré parfait[4, 9, 16, ...] (un nombre trop grand (> 64) peut ralentir le script)</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "tiles",
+		random : true,
+		count : 25
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>circle</td>
+						<td>Transition en cercle</td>
+						<td>
+							<ul>
+								<li>origin
+									<ul>
+										<li>Centre du cercle</li>
+										<li>"center"</li>
+										<li>"center" | "top-left" | "top-right" | "bottom-left" | "bottom-right"</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "circle",
+		origin : "top-left"
+	}
+</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>square</td>
+						<td>Transition en carré</td>
+						<td>
+							<ul>
+								<li>origin
+									<ul>
+										<li>Centre du carré</li>
+										<li>"center"</li>
+										<li>"center" | "top-left" | "top-right" | "bottom-left" | "bottom-right"</li>
+									</ul>
+								</li>
+							<ul>
+						</td>
+						<td>
+<pre>
+	transition : {
+		name : "square",
+		origin : "bottom-left"
+	}
+</pre>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
+</html>

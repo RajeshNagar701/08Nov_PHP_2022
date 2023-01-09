@@ -1,0 +1,58 @@
+<!--
+What are Events?
+All the different visitors' actions that a web page can respond to are called events.
+
+An event represents the precise moment when something happens.
+
+Examples:
+
+moving a mouse over an element
+selecting a radio button
+clicking on an element
+The term "fires/fired" is often used with events. Example: "The keypress event is fired, the moment you press a key".
+
+Here are some common DOM events:
+
+Mouse Events	
+Keyboard Events	
+Form Events	Document/Window Events
+
+
+click	
+keypress	
+submit	
+load
+dblclick	
+keydown	
+change	
+resize
+mouseenter  // event
+hover	 // action/function 
+keyup	
+focus	
+scroll
+mouseleave	 	
+blur	
+unload
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#p1").hover(function(){
+    alert("You entered p1!");
+  }); 
+});
+</script>
+</head>
+<body>
+
+<p id="p1">This is a paragraph.</p>
+
+</body>
+</html>

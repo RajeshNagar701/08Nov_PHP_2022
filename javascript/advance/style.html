@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<script>
+	//https://www.w3schools.com/jsref/dom_obj_style.asp
+	// javascript style refference   
+	function myfunction()
+	{
+		document.getElementById("raj").style.fontSize="50px";
+		document.getElementById("raj").style.color="red";
+		document.getElementById("raj").style.backgroundColor="yellow";
+	}
+	
+	function myimg()
+	{
+		document.getElementById("img").style.width="500px";
+		document.getElementById("img").style.border="solid";
+	}
+	
+	function myimg2()
+	{
+		document.getElementById("img").style.width="300px";
+		document.getElementById("img").style.border="none";
+	}
+
+	
+	
+</script>
+
+</head>
+
+<body>
+
+<input type="submit" name="submit" value="click here" ondblclick="myfunction()">  <!-- onclick HTML EVENT-->
+
+<h1 id="raj" style="color:blue">This is style given by javascript function</h1>
+
+<img src="logo.png" id="img" onmouseover="myimg()" onmouseout="myimg2()">
+
+
+
+</body>
+</html>

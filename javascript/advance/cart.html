@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+  
+
+</head>
+
+<body>
+
+<script>
+function plus()
+{
+	var value=document.getElementById('test').innerHTML;
+	value++;
+	document.getElementById('test').innerHTML=value;
+}	
+function minus()
+{
+	var value=document.getElementById('test').innerHTML;
+	value--;
+	document.getElementById('test').innerHTML=value;
+}	
+
+function plus1()
+{
+	var a=document.getElementById('demo').value;
+	a++;
+	document.getElementById('demo').value=a;
+}	
+function minus1()
+{
+	var a=document.getElementById('demo').value;
+	a--;
+	if(a<0)
+	{
+	}
+	else
+	{
+	document.getElementById('demo').value=a;
+	}
+}	
+
+</script>
+<br>
+<br>
+
+<div class="container">
+	<input type="submit" value="+" onclick="plus()">
+	<span id="test">1</span>
+	<input type="submit" value="-" onclick="minus()">
+</div>
+
+<br>
+<br>
+
+<div class="container">
+	<input type="submit" value="+" onclick="plus1()">
+	<input type="text" id="demo" value="1" min="1">
+	<input type="submit" value="-" onclick="minus1()">
+</div>
+
+
+</body>
+</html>

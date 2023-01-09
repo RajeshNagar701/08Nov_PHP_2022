@@ -1,0 +1,99 @@
+
+<!--
+Sliding Methods
+With jQuery you can create a sliding effect on elements.
+
+jQuery has the following slide methods:
+
+slideDown()
+slideUp()
+slideToggle()
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle();
+  });
+  
+  $("#flip1").click(function(){
+    $("#panel1").toggle();
+  });
+  
+});
+
+  s
+</script>
+<style> 
+#flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  width:50%;
+}
+
+#panel {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  display: none;
+  width:50%;
+}
+
+
+#flip1 {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  width:20%;
+  float:left;
+}
+
+#panel1 {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+  display: none;
+  width:20%;
+float:left;
+}
+
+</style>
+</head>
+<body>
+ 
+<div id="flip">Menu-1</div>
+<div id="panel">Sub-menu</div>
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+
+
+<div id="flip1">Menu-1</div>
+<div id="panel1">Sub-menu</div>
+
+
+
+
+
+</body>
+</html>

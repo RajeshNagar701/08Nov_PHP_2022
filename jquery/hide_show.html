@@ -1,0 +1,47 @@
+
+<!--
+
+	hide()
+	show()
+	toggle()
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#test").hide(5000);
+  });
+  
+   $("#show").click(function(){
+    $("#test").show();
+  });
+    
+   $("#toggle").click(function(){
+    $("p").toggle();
+  });	
+  
+  });
+</script>	
+</head>
+<body>
+
+<p id="test">If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+
+<button id="toggle">Toggle between hiding and showing the paragraphs</button>
+
+<p>This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p>
+<p>hi i m toggle </p>
+
+</body>
+</html>

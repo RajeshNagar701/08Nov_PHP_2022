@@ -1,0 +1,170 @@
+
+<html>
+   <body>
+   
+<!--
+   
+Arithmetic Operators  					+ - * / %     10/2=5   10%2=0
+increement & decreement operator    	++ -- 
+Comparison/Relational Operators  		== ===  > < <=  >= != 
+Logical Operators      					&&  ||   !   // use with if(condition)
+Assignment Operators  					= =+ =- =* =/ =%   a=10  a=a+b; a=+b
+Bitwise Operators						&  |  ^ ~ << >> >>>
+Special/Miscellaneous/conditional 	    ? :
+
+typeof Operator   The typeof operator evaluates to "number", "string", or "boolean" 
+if its operand is a number, string, or boolean value and returns true or false based 
+on the evaluation. 
+-->
+   
+	
+      <script>
+		 
+		 
+		 //Arithmetic Operators  					+ - * / % 
+		 
+		/*
+            var a = 31;
+            var b = 10;
+			var sum=a%b;
+			document.write(sum);
+		*/
+		 
+		 
+		 
+		 //increement & decreement operator    	++ -- 
+		 
+		/*
+            var a = 10;
+			a++;
+			a++;
+            var b = 50;
+			b--;
+			document.write(a);
+			document.write(b);
+         
+		 */
+		 
+		 
+		 
+		 //Comparison Operators  				== !=   > < <=  >= 
+		 
+		 /*
+			var a="30";
+			var b=30;
+			if(a==b)
+			{
+				document.write('a equal to b');
+			}
+			else
+			{
+				document.write('a not equal to b');
+			}
+		*/
+		 
+		/*
+		 
+			var a="30";
+			var b=30;
+			if(a===b)  // check value same or not with same data type 
+			{
+				document.write('a equal to b with same data type');
+			}
+			else
+			{
+				document.write('a not equal to b or not same data type');
+			}
+		*/ 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 //Logical (or Relational) Operators      	&&  ||   !   // use with if(condition)
+		/*
+		
+			var a=20;
+			var b=30;
+			var c=10
+			if(a<=b && a<=c)      // if(!(a<=b))    if(a<=b || a<=c) 
+			{
+				document.write('a less then b & c');
+			}
+			else
+			{
+				document.write('cond false');
+			}
+		*/
+		
+		
+		// Assignment Operators  = += -= *= /= %=   a=10  a=a+b; a+=b
+		
+		/*
+		
+			var a=20;
+			var b=30;
+			document.write(a=a+b);   // a=a+b;
+		*/
+		
+		
+		//special/Miscellaneous/conditional 	    ? :
+		
+		
+		/*
+			var a=20;
+			var b=30;
+			var sum;
+			document.write((a>b)? 'a is greater then b ' : 'a is less then b');
+		*/
+		
+		//typeof Operator
+		/*
+		The typeof operator is a unary operator that is placed before its single operand, 
+		which can be of any type. Its value is a string indicating the data type of the 
+		operand.
+
+		The typeof operator evaluates to "number", "string", or "boolean" 
+		if its operand is a number, string, or boolean value and returns true or false
+		based on the evaluation.
+		
+		Type	String Returned by typeof
+		
+		Number	"number"
+		String	"string"
+		Boolean	"boolean"
+		Object	"object"
+		Function	"function"
+		Undefined	"undefined"
+		Null	"object"
+		
+		*/
+		
+		
+			var a=20;
+			if( typeof a=="number")      // if(!(a<=b))    if(a<=b || a<=c) 
+			{
+				document.write('a is Integer <br>');
+			}
+			else
+			{
+				document.write('a is Not Integer');
+			}
+			
+			
+			var b=10;
+			if( typeof b=="string")      // if(!(a<=b))    if(a<=b || a<=c) 
+			{
+				document.write('b is string');
+			}
+			else
+			{
+				document.write('b is Not string');
+			}
+
+		
+      </script>
+     
+   </body>
+</html>

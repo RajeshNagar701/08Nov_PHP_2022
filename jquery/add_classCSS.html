@@ -1,0 +1,57 @@
+<!--
+
+jQuery Manipulating CSS
+jQuery has several methods for CSS manipulation. We will look at the following methods:
+
+addClass() - Adds one or more classes to the selected elements
+removeClass() - Removes one or more classes from the selected elements
+toggleClass() - Toggles between adding/removing classes from the selected elements
+css() - Sets or returns the style attribute
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("h1, h2, p").addClass("important blue");
+ 	});
+  $("#btn2").click(function(){
+    $("h1, h2, p").removeClass("important blue	");
+    });
+	
+   $("#btn3").click(function(){
+    $("h1, h2, p").toggleClass("important blue");
+    });	
+});
+</script>
+<style>
+.important {
+  font-weight: bold;
+  font-size: xx-large;
+  background-color:yellow;
+}
+.blue {
+  color: blue;
+}
+</style>
+</head>
+<body>
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<button id="btn1">Add classes to elements</button>
+<button id="btn2">Remove classes to elements</button>
+<button id="btn3">toggle classes to elements</button>
+
+
+</body>
+</html>

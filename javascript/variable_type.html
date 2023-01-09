@@ -1,0 +1,100 @@
+<!--
+
+
+JavaScript Datatypes
+One of the most fundamental characteristics of a programming language is the 
+set of data types it supports. These are the type of values that can be represented 
+and manipulated in a programming language.
+JavaScript allows you to work with three primitive data types −
+
+Numbers, eg. 123, 120.50 etc.
+Strings of text e.g. "This text string" etc.
+Boolean e.g. true or false.
+
+
+Naming variables
+Variable names are pretty flexible as long as you follow a few rules:
+Start them with a letter, underscore _, or dollar sign $.   name123
+After the first letter, you can use numbers, as well as letters, underscores, or dollar signs.
+Don’t use any of JavaScript’s reserved keywords.
+Variable names are case-sensitive,  a   A
+
+var camelCase = "lowercase word, then uppercase";
+var dinner2Go = "pizza";
+var I_AM_HUNGRY = true;
+var _Hello_ = "what a nice greeting"
+var $_$ = "money eyes";
+
+
+var 123abc  firts letter / _ / $
+var ab c    No space
+
+
+
+ VAR : KEYWORDS Use the var keyword only for declaration or initialization, 
+ once for the life of any variable name in a document. 
+
+
+<script type = "text/javascript">
+	  var numb =10;
+      var name = "Ali";
+      var money;
+      money = 2000.50;
+</script>
+
+
+You can also declare multiple variables
+
+ var money, name;
+
+
+      var money;
+      money = 2000.50;
+-->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+
+<h1 id="number"></h1>
+
+<h1 id="string"></h1>
+
+<h1 id="arr"></h1>
+
+<h1 id="arr_index"></h1>
+
+<script>
+ 
+ var number=15;
+ document.getElementById('number').innerHTML=number;
+
+ var name="Raj Nagar";
+ document.getElementById('string').innerHTML=name;
+
+ var students=["Jinal","Sahil","Kamlesh","Jainik","Jainam","Saloni","Kajal"];
+ document.getElementById('arr').innerHTML=students;
+
+ document.getElementById('arr_index').innerHTML=students[2];
+ 
+ 
+ 
+ 
+ var a,b,c;
+  a=10;
+  b=20;
+  c=a+b;
+  
+  document.write("<h1>Sum of a & b are : " + c + "</h1>");
+  document.write(`<h1> Sum of a & b are : ${c} </h1>`);
+ 
+</script>
+
+</body>
+</html>
+

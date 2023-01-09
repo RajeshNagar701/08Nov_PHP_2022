@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red").slideUp(2000).slideDown(2000).animate({fontSize: '3em'});
+  });
+});
+
+
+/*
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red");
+	$("#p1").slideUp(2000);
+	$("#p1").slideDown(2000);
+	$("#p1").animate({fontSize: '3em'});
+  });
+});
+*/
+
+</script>
+</head>
+<body>
+
+<p id="p1">jQuery is fun!!</p>
+
+<button>Click me</button>
+
+</body>
+</html>

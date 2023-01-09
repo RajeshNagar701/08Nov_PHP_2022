@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <title>Ketchup Plugin</title>
+    
+	<!-- call all files -->
+	
+	
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.ketchup.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ketchup.js"></script>
+    <script type="text/javascript" src="js/jquery.ketchup.messages.js"></script>
+    <script type="text/javascript" src="js/jquery.ketchup.validations.basic.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+	
+	
+  </head>
+  <body>
+    
+    
+	
+      <form  id="example1">
+        <div>
+          <label for="ex1_username">Username</label>
+          <input type="text"  class="validate(required, username)" />
+        </div>
+        <div>
+          <label for="ex1_password">Password</label>
+          <input type="password"  class="validate(required)" />
+        </div>
+        <div>
+          <label for="ex1_password_conf">Password Confirmation</label>
+          <input type="password"  class="validate(required, match(#ex1_password))" />
+        </div>
+        <div>
+          <label for="ex1_roles">Speciality</label>
+          <p><input type="checkbox" name="role" value="jquery" /> jQuery</p>
+          <p><input type="checkbox" name="role" value="js" /> JavaScript</p>
+          <p><input type="checkbox" name="role" value="rails" /> Rails</p>
+          <p><input type="checkbox" name="role" value="php" /> PHP</p>
+          <p><input type="checkbox" name="role" value="wp" /> Wordpress</p>
+          <p><input type="checkbox" name="role" value="other" class="validate(rangeselect(1,3))" /> Other</p>
+          <div class="clear"></div>
+        </div>
+        <div>
+          <label for="ex1_about">About you</label>
+          <textarea rows="1" class="validate(rangelength(10,140))"></textarea>
+        </div>
+        <div class="submit">
+          <input type="submit" value="(Try to) Submit" />
+        </div>
+      </form>	
+	</div>
+  </body>
+</html>

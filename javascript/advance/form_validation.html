@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<script>
+// first Make one function
+
+function validate()  // function name
+{
+	// take variable now if we take <form name="" than use document.forms["myform"]["ufn"].value;
+	
+	// if we use <form id="" than we use var img=document.getElementById("img");
+	
+	var ufn=document.forms["myform"]["ufn"].value;  
+	if(ufn=="" || ufn==null)  // for null condition
+	{
+		alert('Please fill out the User First Name');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	//                      /^[]$/
+	//alpha=/^[A-Za-z]+$/
+	//var phone=/^[0-9]{10,11}$/;
+	//var mail=/^[a-zA-Z0-9_]+@[a-zA-Z]+\.[a-zA-Z]{2,4}$/;
+	var alpha=/^[A-Za-z]+$/;  // /^[A-Za-z]{3,8}$/
+	if(!alpha.test(ufn))
+	{
+		alert('Please fill only alpha User First Name');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+
+	}
+	
+	
+	var un=document.forms["myform"]["un"].value;  
+	if(un=="" || un==null)  // for null condition
+	{
+		document.getElementById('un').innerHTML="Please fill out the User Name";
+		return false;
+	}
+	else
+	{
+		document.getElementById('un').innerHTML="";
+	}
+	
+	var pass=document.forms["myform"]["pass"].value;  
+	if(pass=="" || pass==null)  // for null condition
+	{
+		alert('Please fill out the pass');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	if(!(pass.length >=3  && pass.length <= 8))
+	{ 
+		alert('Please,provide min 3 & max 8 char in pass');
+		return false;
+	}
+	
+	var cpass=document.forms["myform"]["cpass"].value;  
+	if(cpass=="" || cpass==null)  // for null condition
+	{
+		alert('Please fill out the cpass');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	if(pass==cpass)
+	{
+	}
+	else
+	{
+		alert('Please Enter Same values');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	
+	var email=document.forms["myform"]["email"].value;  
+	if(email=="" || email==null)  // for null condition
+	{
+		alert('Please fill out the email');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	var mail=/^[a-zA-Z0-9_]+@[a-zA-Z]+\.[a-zA-Z]{2,4}$/;
+	if(!mail.test(email))
+	{
+		alert('Please fill proper email id');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+
+	}
+	
+	
+	
+	var pno=document.forms["myform"]["pno"].value;  
+	if(pno=="" || pno==null)  // for null condition
+	{
+		alert('Please fill out the pno');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+	}
+	
+	var phone=/^[0-9]{10,11}$/;
+	if(!phone.test(pno))
+	{
+		alert('Please fill only digits in PNO');  // alert msg
+		return false;   //return false means msg show and again on same page with value not refresh page
+
+	}
+	
+	
+	var gen_arr = document.getElementsByName("gender");
+    if (gen_arr[0].checked == true) 
+	{
+                   
+    } 
+	else if (gen_arr[1].checked == true) 
+	{
+                  
+    } 
+	else 
+	{
+		alert('! Please Select Gender');  // alert msg
+        return false;
+    }
+	
+	
+	var chk_arr = document.getElementsByName("chk");
+    if (chk_arr[0].checked == true) 
+	{
+                   
+    } 
+	else if (chk_arr[1].checked == true) 
+	{
+                  
+    } 
+	else if (chk_arr[2].checked == true) 
+	{
+                  
+    } 
+	else if (chk_arr[3].checked == true) 
+	{
+                  
+    }
+	else 
+	{
+		alert('! Please Select any one Hobby ');  // alert msg
+		return false;
+    }
+	
+	
+}
+</script>
+</head>
+
+<body>
+                                      
+<form name="myform" action="" method="post" onsubmit="return validate()">
+			<table border="2" align="center">
+            	<tr>
+                	<th> Registration Page </th>
+                </tr>
+                <tr>
+            		<th>User Fist Name:-</th>
+                    <td><input type="text" name="ufn" ></td>
+                </tr>
+   
+                <tr>
+            		<th>User Name:-</th>
+                    <td>
+						<input type="text" name="un" >
+						<span style="color:red" id="un"></span>
+					</td>
+                </tr>
+                <tr>
+            		<th>Password:-</th>
+                    <td><input type="password" name="pass" ></td>
+                </tr>
+              <tr>
+            		<th>Confirm Password:-</th>
+                    <td><input type="password" name="cpass" ></td>
+                </tr>
+                <tr>
+            		<th>Email Address:-</th>
+                    <td><input type="text" name="email" ></td>
+                </tr>
+                <tr>
+            		<th>Phone No:-</th>
+                    <td><input type="text" name="pno" ></td>
+                </tr>
+				<tr>
+            		<th>Phone No:-</th>
+                    <td><input type="text" name="pno" ></td>
+                </tr>
+				<tr>
+            		<th>Hobby</th>
+                    <td> 
+					Reading <input type="checkbox"  name="chk" value="Reading">
+					Music <input type="checkbox"  name="chk" value="music">
+					Outing <input type="checkbox"  name="chk" value="outing">
+					 Cricket <input type="checkbox" name="chk" value="criket">
+					</td>
+                </tr>
+				
+				<tr>
+            		<th>Gender</th>
+                    <td> 
+					Male <input type="radio"  name="gender" value="m">
+					Female <input type="radio" name="gender" value="f">
+					</td>
+                </tr>
+				
+                <tr>
+                	<td><input type="submit" name="submit"/></td>
+                    
+                </tr>
+                 	
+            	
+            </table>
+                
+        </form>
+
+</body>
+</html>

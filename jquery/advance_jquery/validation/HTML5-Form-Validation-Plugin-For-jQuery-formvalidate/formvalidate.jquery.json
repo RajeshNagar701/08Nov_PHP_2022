@@ -1,0 +1,43 @@
+{
+	"name": "formvalidate",
+	"title": "jQuery Form Validate",
+	"description": "jQuery Form Validate is a simple form validation plugin that allows you to easily validate your forms by applying various HTML data attributes.",
+	"version": "0.4.2",
+	"author": {
+		"name": "Victor Michnowicz",
+		"url": "http://www.vmichnowicz.com/"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"dependencies": {
+		"jquery": ">1.4.3"
+	},
+	"keywords": [
+		"form",
+		"validation",
+		"validate"
+	],
+	"homepage": "https://github.com/vmichnowicz/jquery.formvalidate",
+	"bugs": "https://github.com/vmichnowicz/jquery.formvalidate/issues",
+	"docs": "https://github.com/vmichnowicz/jquery.formvalidate/wiki",
+	"demo": "http://www.vmichnowicz.com/examples/formvalidate/index.html",
+	"maintainers": [
+		{
+			"name": "Victor Michnowicz",
+			"url": "http://www.vmichnowicz.com/"
+		}
+	],
+	"files": [
+		"index.html",
+		"jquery.formvalidate.js",
+		"LICENSE.txt",
+		"localization/de.js",
+		"localization/es.js",
+		"localization/pirate.js",
+		"README.md"
+	]
+}

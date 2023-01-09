@@ -1,0 +1,39 @@
+
+
+
+
+
+
+<h1 id="html">Hello</h1>
+
+<span id="print" style="color:red"></span>
+
+<button id="btn1" onclick="html()">Click 1</button>
+
+<script>
+
+function html()
+	{
+		var htmlcode=document.getElementById("html").innerHTML;
+		document.getElementById("print").innerHTML=htmlcode;
+	}
+
+</script>
+
+<hr>
+
+
+
+<input type="text" id="code" placeholder="Enter Your Code">
+<button id="btn2" onclick="input()">Click 2</button>
+
+<h1 id="inputdata"></h1>
+
+<script>
+function input()
+	{
+		var inputvalue=document.getElementById("code").value;
+		document.getElementById("inputdata").innerHTML=inputvalue;
+		
+	}
+</script>

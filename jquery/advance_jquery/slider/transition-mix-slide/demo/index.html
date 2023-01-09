@@ -1,0 +1,286 @@
+<!--
+	This web page shows you an example of mixSlide plug-in
+-->
+
+<!DOCTYPE HTML>
+<html lang="fr">
+	<head>
+		<title>MixSlide - demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet"type="text/css"href="css/demo.css"/>
+		<link rel="stylesheet"type="text/css"href="../src/mixSlide.css"/>
+	</head>
+	<body>
+		<h1>Mix Slide - Demonstration</h1>
+		<center><em>Après modification d'une option, charger de nouveau le diaporama pour que la modification soit prise en compte</em></center>
+		<div id="options">
+			<h3>Options</h3>
+			<form>
+				<div id="fields">
+					<span>
+						<label>fullscreen</label>
+						<input type="radio"name="fullscreen"value="true"/> true
+						<input type="radio"name="fullscreen"value="false" checked/> false
+					</span>
+					<span>
+						<label>Autoplay</label>
+						<input type="radio"name="autoplay"value="true"/>True
+						<input type="radio"name="autoplay"value="false" checked/>False
+					</span>
+					<span>
+						<label>animation</label>
+						<span>
+							<label>speed</label>
+							<input type="number" id="animation-speed"value="3"/>
+						</span>
+						<span>
+							<label>delay</label>
+							<input type="number" id="animation-delay" value="5"/>
+						</span>
+					</span>
+					<span>
+						<label>controls</label>
+						<span>
+							<label>active</label>
+							<input type="radio"name="controls-active"value="true" checked/> true
+							<input type="radio"name="controls-active"value="false" /> false
+						</span>
+						<span>
+							<label>position</label>
+							<select id="controls-position">
+								<option value="top" selected>top</option>
+								<option value="bottom">bottom</option>
+							</select>
+						</span>
+					</span>
+					<span>
+						<label>thumbs</label>
+						<span>
+							<label>active</label>
+							<input type="radio"name="thumbs-active"value="true"checked/> true
+							<input type="radio"name="thumbs-active"value="false" /> false
+						</span>
+						<span>
+							<label>position</label>
+							<select id="thumbs-position">
+								<option value="top">top</option>
+								<option value="bottom">bottom</option>
+								<option value="left" selected>left</option>
+								<option value="right">right</option>
+							</select>
+						</span>
+					</span>
+					<span>
+						<label>labels</label>
+						<span>
+							<label>active</label>
+							<input type="radio"name="labels-active"value="true"/> true
+							<input type="radio"name="labels-active"value="false" checked/> false
+						</span>
+						<span>
+							<label>position</label>
+							<select id="labels-position">
+								<option value="top-left" selected>top-left</option>
+								<option value="top-right">top-right</option>
+								<option value="bottom-left">bottom-left</option>
+								<option value="bottom-right">bottom-right</option>
+							</select>
+						</span>
+					</span>
+					<span id="span-transition">
+						<label>transition</label>
+						<select id="transition">
+							<option value="random" selected>random</option>
+							<option value="fade">fade</option>
+							<option value="slide">slide</option>
+							<option value="slices">slices</option>
+							<option value="tiles">tiles</option>
+							<option value="circle">circle</option>
+							<option value="square">square</option>
+						</select>
+						<span>
+							<h4>Transition options</h4>
+							<div data-transition="random">
+								<span>
+									<label>constant</label>
+									<input type="radio"name="random-constant"value="true"/>True
+									<input type="radio"name="random-constant"value="false" checked/>False
+								</span>
+							</div>
+							<div data-transition="fade">
+								<p>No options</p>
+							</div>
+							<div data-transition="slide">
+								<span>
+									<label>direction</label>
+									<select id="slide-direction">
+										<option value="horizontal" selected>horizontal</option>
+										<option value="vertical">vertical</option>
+									</select>
+								</span>
+							</div>
+							<div data-transition="slices">
+								<span>
+									<label>direction</label>
+									<select id="slide-direction">
+										<option value="horizontal" selected>horizontal</option>
+										<option value="vertical" selected>vertical</option>
+									</select>
+								</span>
+								<span>
+									<label>count</label>
+									<input id="slide-count" value="4" type="number"/>
+								</span>
+							</div>
+							<div data-transition="tiles">
+								<span>
+									<label>random</label>
+									<input type="radio"name="tiles-random"value="true"/>True
+									<input type="radio"name="tiles-random"value="false" checked/>False
+								</span>
+								<span>
+									<label>count (carré parfait)</label>
+									<input id="tiles-count" value="16" type="number"/>
+								</span>
+							</div>
+							<div data-transition="circle">
+								<span>
+									<label>origin</label>
+									<select id="circle-origin">
+										<option value="center" selected>center</option>
+										<option value="top-left">top-left</option>
+										<option value="top-right">top-right</option>
+										<option value="bottom-left">bottom-left</option>
+										<option value="bottom-right">bottom-right</option>
+									</select>
+								</span>
+							</div>
+							<div data-transition="square">
+								<span>
+									<label>origin</label>
+									<select id="square-origin">
+										<option value="center" selected>center</option>
+										<option value="top-left">top-left</option>
+										<option value="top-right">top-right</option>
+										<option value="bottom-left">bottom-left</option>
+										<option value="bottom-right">bottom-right</option>
+									</select>
+								</span>
+							</div>
+						</span>
+					</span>
+				</div>
+				<div id=buttons>
+					<button id="launch">Charger</button>
+				</div>
+
+			</form>
+		</div>
+		<div id="images">
+			<div><img src="images/img1.jpg"/><p>Image 1</p></div>
+			<div><img src="images/img2.jpg"/><p>Image 2</p></div>
+			<div><img src="images/img3.jpg"/><p>Image 3</p></div>
+			<div><img src="images/img4.jpg"/><p>Image 4</p></div>
+			<div><img src="images/img5.jpg"/><p>Image 5</p></div>
+			<div><img src="images/img1.jpg"/><p>Image 6</p></div>
+			<div><img src="images/img2.jpg"/><p>Image 7</p></div>
+			<div><img src="images/img3.jpg"/><p>Image 8</p></div>
+			<div><img src="images/img4.jpg"/><p>Image 9</p></div>
+			<div><img src="images/img5.jpg"/><p>Image 10</p></div>
+			<div><img src="images/img4.jpg"/><p>Image 11</p></div>
+			<div><img src="images/img3.jpg"/><p>Image 12</p></div>
+			<div><img src="images/img2.jpg"/><p>Image 13</p></div>
+			<div><img src="images/img1.jpg"/><p>Image 14</p></div>
+			<div><img src="images/img4.jpg"/><p>Image 15</p></div>
+			<div><img src="images/img1.jpg"/><p>Image 1</p></div>
+			<div><img src="images/img2.jpg"/><p>Image 2</p></div>
+			<div><img src="images/img3.jpg"/><p>Image 3</p></div>
+			<div><img src="images/img4.jpg"/><p>Image 4</p></div>
+			<div><img src="images/img5.jpg"/><p>Image 5</p></div>
+			<div><img src="images/img1.jpg"/><p>Image 6</p></div>
+			<div><img src="images/img2.jpg"/><p>Image 7</p></div>
+		</div>
+		<div id="diaporama"></div>
+		<script language="javascript"src="../src/jquery.js"></script>
+		<script language="javascript"src="../src/jquery.vporel.mixSlide.js"></script>
+		<script language="javascript">
+			$(function(){
+				$('#launch').click(function(e){
+					e.preventDefault();
+					$('#diaporama').remove();
+					$('#images').after('<div id="diaporama"></div>');
+					$('#diaporama').html($("#images").html());
+					let trans = {};
+					trans.name = $('#transition').val();
+					switch(trans.name){
+						case MXS_RANDOM.name:
+							trans.constant = ($('[name="random-constant"]:checked').val()) ? true : false;
+						break;
+						case MXS_SLIDE.name:
+							trans.direction = $('#slide-direction').val();
+						break;
+						case MXS_SLICES.name:
+							trans.direction = $('#slices-direction').val();
+							trans.count = $('#slices-count').val();
+						break;
+						case MXS_TILES.name:
+							trans.count = $('#tiles-count').val();
+							trans.random = ($('[name="tiles-random"]:checked').val()) ? true : false;
+						break;
+						case MXS_CIRCLE.name:
+							trans.origin = $('#circle-origin').val();
+						break;
+						case MXS_SQUARE.name:
+							trans.origin = $('#square-origin').val();
+						break;
+					}
+					$('#diaporama').mixSlide({
+						fullscreen:($('[name="fullscreen"]:checked').val() == "true") ? true : false,
+						thumbs:{
+							active:($('[name="thumbs-active"]:checked').val()) ? true : false,
+							position:$('#thumbs-position').val()
+						},
+						controls:{
+							active:($('[name="controls-active"]:checked').val() == "true") ? true : false,
+							position: $('#controls-position').val()
+						},
+						transition:trans,
+						animation:{
+							delay:parseInt($('#animation-delay').val()),
+							speed:parseInt($('#animation-speed').val())
+						},
+						autoplay:($('[name="autoplay"]:checked').val() == "true") ? true : false,
+						labels:{
+							active:($('[name="labels-active"]:checked').val() == "true") ? true : false,
+							position:$('#labels-position').val()
+						}
+					});
+				});
+				
+				$('#transition').change(function(){
+					$(this).parent().find('div').hide(500);
+					$(this).parent().find('div[data-transition="'+$(this).val()+'"]').show(500);
+				});
+				$('#transition').trigger('change');
+
+					$('#diaporama').remove();
+				$('#images').after('<div id="diaporama"></div>');
+				$('#diaporama').html($("#images").html());
+				$('#diaporama').mixSlide({
+					fullscreen:false,
+					thumbs:true,
+					controls:true,
+					transition:{name:"circle"},
+					animation:{
+						delay:5,
+						speed:2
+					},
+					labels:true,
+					layout:MXS_LAYOUT_1
+				});
+				
+			});
+		</script>
+	</body>
+</html>

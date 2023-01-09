@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Form Validate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.formvalidate.js"></script>
+	<script type="text/javascript" src="localization/de.js"></script>
+	<script type="text/javascript" src="localization/es.js"></script>
+	<script type="text/javascript" src="localization/pirate.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: #333;
+			padding-right: 0px; 
+			padding-left: 0px;
+		}
+		form {
+			position: relative;
+			margin: 15px;
+			padding: 5px 15px 5px 15px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+		}
+		legend a {
+			float: right;
+			margin-top: 6px;
+		}
+		pre {
+			display: none;
+		}
+		#languages {
+			text-align: right;
+			margin: 0px 15px 15px 15px;
+		}
+		#languages a {
+			margin: 0px 5px;
+			font-size: 11px;
+			color: #999;
+		}
+		#languages a.current {
+			color: #bbb;
+		}
+	</style>
+
+</head>
+
+<body>
+
+<div class="row-fluid">
+	<div class="span12">
+		<form id="form-1" method="post" action="" class="form-horizontal">
+			<fieldset>
+				<legend>Basic Form <a href="#example-1" class="btn btn-mini"><i class="icon-eye-close"></i> Code</a></legend>
+
+				<div class="control-group">
+					<label for="required" class="control-label">Anything</label>
+					<div class="controls">
+						<input type="text" id="required" name="required" data-trim data-min-length="2" title="Anything" class="required" maxlength="128">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="optional" class="control-label">Optional</label>
+					<div class="controls">
+						<input type="text" id="optional" name="optional" title="Optional" maxlength="128">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<input type="submit" class="btn btn-small btn-primary" id="submit-1" value="Submit">
+					</div>
+				</div>
+<pre id="example-1">// Validate on form submission
+$('#form-1').submit(function(e) {
+  e.preventDefault();
+    $(this).formvalidate({
+      failureMessages: true,
+      successMessages: true,
+      messageFailureClass: 'label label-important',
+      messageSuccessClass: 'label label-success',
+      onSuccess: function(form) {
+        alert('Form #1 is valid!');
+      }
+    });
+});</pre>
+			</fieldset>
+		</form>
+
+		<form id="form-2" method="post" action="" class="form-horizontal">
+			<fieldset>
+				<legend>Advanced Form <a href="#example-2" class="btn btn-mini"><i class="icon-eye-close"></i> Code</a></legend>
+				<div class="control-group">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input type="text" id="name" name="name" title="Name" data-trim data-min-chars="3" data-is-not="vic bob tom sam" class="required" maxlength="128">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"  for="age">Age</label>
+					<div class="controls">
+						<input type="text" id="age" name="age" title="Age" data-int data-between-numeric="1 101" maxlength="128">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"  for="birth_date">Birth Date</label>
+					<div class="controls">
+						<input type="text" id="birth_date" name="birth_date" title="Birth Date" data-date="YYYY-MM-DD" maxlength="128" placeholder="YYYY-MM-DD">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"  for="email">Email</label>
+					<div class="controls">
+						<input type="text" id="email" name="email" title="Email" data-min-chars="5" data-email class="required" maxlength="128">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label"  for="continent">Continent</label>
+					<div class="controls">
+						<select id="continent" name="continent" title="Continent" class="required">
+							<option value="">&mdash; Please Select &mdash;</option>
+							<option value="na">North America</option>
+							<option value="sa">South America</option>
+							<option value="an">Antarctica</option>
+							<option value="af">Africa</option>
+							<option value="eu">Europe</option>
+							<option value="as">Asia</option>
+							<option value="au">Australia</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Are You Cool?</label>
+					<div class="controls">
+						<label class="radio inline"><input type="radio" name="cool" value="Y" id="cool-yes" class="required" title="Are you cool?"> Yes</label>
+						<label class="radio inline"><input type="radio" name="cool" value="N" id="cool-no"> No</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="why_cool">Why So Cool?</label>
+					<div class="controls">
+						<textarea id="why_cool" name="why_cool" data-trim data-min-length="4" data-max-length="512" data-required-if="cool-yes" title="Why So Cool?" cols="64" rows="8"></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">What 2 colors do you like?</label>
+					<div class="controls">
+						<select multiple="multiple" id="colors" name="colors[]" title="Colors" data-num-options="2" class="required">
+							<option value="red">Red</option>
+							<option value="orange">Orange</option>
+							<option value="yellow">Yellow</option>
+							<option value="green">Green</option>
+							<option value="blue">Blue</option>
+							<option value="purple">Purple</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">What Do You Like?</label>
+					<div class="controls">
+						<label class="checkbox inline"><input type="checkbox" name="like[]" value="ci" title="What do you like?" class="required"> CodeIgniter</label>
+						<label class="checkbox inline"><input type="checkbox" name="like[]" value="fuel" data-min-options="2" data-max-options="4"> Fuel</label>
+						<label class="checkbox inline"><input type="checkbox" name="like[]" value="kohana"> Kohana</label>
+						<label class="checkbox inline"><input type="checkbox" name="like[]" value="laravel"> Laravel</label>
+						<label class="checkbox inline"><input type="checkbox" name="like[]" value="zend"> Zend</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<input type="submit" class="btn btn-small btn-primary" id="submit-2" value="Submit">
+					</div>
+				</div>
+
+<pre id="example-2">$('#submit-2').click(function(e) {
+  e.preventDefault();
+
+  // From the anchor element find the closest form element
+  $(this).closest('form').formvalidate({
+    failureMessages: true,
+    successMessages: true,
+    messageFailureClass: 'label label-important',
+    messageSuccessClass: 'label label-success',
+    onSuccess: function(form) {
+      alert('Form #2 is valid!');
+    },
+    localization: {
+      en: {
+        success: {
+          name: 'Good, you know your name.',
+          age: 'Ahh, {1}, a wise age.',
+          birth_date: 'The year of the tiger!',
+          email: 'We promise not to stalk you.',
+          continent: function(title, value, name, input) {
+            var text = $(':input[name=&quot;' + name + '&quot;] option[value=&quot;' + value + '&quot;]').text();
+            return text + ', really? Me too!';
+          },
+          'colors[]': 'O, wow good choices!',
+          why_cool: 'Ya, u got it!',
+            'like[]': 'Those are my favorite frameworks too.!'
+          },
+          failure: {
+            email: function(title, value, name, input) {
+            return 'There is no way that email ' + value + ' is valid.';
+          }
+        }
+      }
+    }
+  });
+});</pre>
+			</fieldset>
+		</form>
+
+		<div id="languages">
+			<a href="javascript:void(0);" data-language="de">Deutsch</a>
+			<a href="javascript:void(0);" data-language="en" class="current">English</a>
+			<a href="javascript:void(0);" data-language="es">Espa&ntilde;ol</a>
+			<a href="javascript:void(0);" data-language="pirate">Pirate</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+
+		// Validate on form submission
+		$('#form-1').submit(function(e) {
+			e.preventDefault();
+			$(this).formvalidate({
+				failureMessages: true,
+				successMessages: true,
+				messageFailureClass: 'label label-important',
+				messageSuccessClass: 'label label-success',
+				onSuccess: function(O) {
+					alert('Form #1 is valid!');
+				}
+			});
+		});
+
+		// Validate when the submit button is clicked
+		$('#submit-2').click(function(e) {
+			e.preventDefault();
+
+			// From the anchor element find the closest form element
+			$(this).closest('form').formvalidate({
+				failureMessages: true,
+				successMessages: true,
+				messageFailureClass: 'label label-important',
+				messageSuccessClass: 'label label-success',
+				onSuccess: function(form) {
+					alert('Form #2 is valid!');
+				},
+				validations: {
+					isNot: function(input, params) {
+						return $.inArray(input.toLowerCase(), params);
+					}
+				},
+				localization: {
+					en: {
+						success: {
+							name: 'Good, you know your name.',
+							age: 'Ahh, {1}, a wise age.',
+							birth_date: function() {
+								var animals = ['rat', 'ox', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'rooster', 'dog', 'pig']
+								var animal = animals[Math.floor(Math.random()*animals.length)];
+								return 'The year of the ' + animal + '!';
+							},
+							email: 'We promise not to stalk you.',
+							continent: function(title, value, name, input) {
+								var text = $(':input[name="' + name + '"] option[value="' + value + '"]').text();
+								return text + ', really? Me too!';
+							},
+							'colors[]': 'O, wow good choices!',
+							why_cool: 'Ya, u got it!',
+							'like[]': 'Those are my favorite frameworks too.!'
+						},
+						failure: {
+							email: function(title, value, name, input) {
+								return 'There is no way that email ' + value + ' is valid.';
+							},
+							isNot: function(title, value, name, input) {
+								return 'That name is not original enough.';
+							}
+						}
+					}
+				}
+			});
+		});
+
+		// Toggle "Why So Cool?"
+		(function () {
+			var cool = $('input[name="cool"]');
+			var why = $('#why_cool').closest('.control-group');
+
+			// Toggle "Why So Cool?" question
+			var toggle = function toggle() {;
+				$(cool).filter(':checked').val() === 'Y' ? $(why).show() : $(why).hide();
+				return toggle;
+			}();
+
+			// Run toggle function on change
+			$(document).on('change', $(cool), function() {
+				toggle();
+			});
+		})();
+
+		// Toggle code
+		$('legend a').click(function(e) {
+			e.preventDefault();
+			$( $(this).attr('href') ).toggle();
+		});
+
+		// Toggle language
+		$('#languages a').click(function(e) {
+			e.preventDefault();
+			$.extend(true, jQuery.fn.formvalidate.options.language = $(this).data('language'));
+			$(this).siblings().removeClass('current').end().addClass('current');
+		});
+	});
+</script>
+	
+</body>
+</html>

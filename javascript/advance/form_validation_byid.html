@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+  
+ <!--include javascript file -->
+<script src="val.js" type="text/javascript" ></script>
+
+</head>
+
+<body>
+
+
+
+<!-- //banner -->
+	<!-- contact -->
+	<div class="contact">
+		<div class="container">
+        <div class="row">
+        <div class="col-md-12 col-xs-12">
+		<div class="jumbotron">
+			<div class="agileits-title">
+				<h2>Register Form</h2>
+			</div>
+            
+            
+            
+            
+<div class="agile-contact-form">
+            		
+		<h4 id="msg1" align="center" style="color:#FF0000; text-transform:capitalize"></h4>
+		<br>
+		<br>	
+				
+				
+		<form method="post" class="form-horizontal" onsubmit="return reg_form(this)"> 
+
+
+		
+		   <div class="form-group">
+        		<label class="control-label col-sm-2">User Name <span style="color:red">*</span></label>
+       			 <div class="col-sm-10">
+         		 <input type="text" class="form-control" placeholder="Enter User Name" name="Username" id="uname">
+       			 </div>
+     	   </div>
+
+      		<div class="form-group">
+       		 <label class="control-label col-sm-2">Password <span style="color:red">*</span></label>
+       		 <div class="col-sm-10">
+        	  <input type="password" class="form-control" placeholder="Enter Password" name="pass"  id="pass">
+        	 </div>
+     		</div>
+			
+            <div class="form-group">
+                <label class="control-label col-sm-2">Email <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <input type="text" id="email" class="form-control"  placeholder="Enter Email" name="em" >
+                </div>
+              </div>
+
+      		<div class="form-group">
+       		 <label class="control-label col-sm-2">Gender <span style="color:red">*</span></label>
+       	 		<div class="col-sm-10">
+         		 Male <input type="radio"  name="gender" value="m" style="width: auto; height: auto;">
+          		Female <input type="radio" name="gender" value="f" style="width: auto; height: auto;" >
+       	  	 	</div> 
+      		</div>
+
+
+              <div class="form-group">
+                <label class="control-label col-sm-2">Hobby <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  Reading <input type="checkbox"  name="chk" value="Reading" style="width: auto; height: auto;">
+                  
+                  Music <input type="checkbox"  name="chk" value="music" style="width: auto; height: auto;">
+                  Outing <input type="checkbox"  name="chk" value="outing" style="width: auto; height: auto;">
+        
+                  Cricket <input type="checkbox" name="chk" value="criket" style="width: auto; height: auto;">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-2">Country <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <select name="country"  class="form-control" id="country">
+                      <option value="">-Select Country-</option>
+                      <option value="India">India</option>
+                      <option value="Usa">Usa</option>
+                      <option value="India">Japan</option>
+                      <option value="Usa">Rasia</option>
+                      </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-sm-2">Education <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <select name="edu" id="edu"  class="form-control" multiple min="1" max="3">
+                      <option value="">-Select Education-</option>
+                      <option value="10th">10th</option>
+                      <option value="12th">12th</option>
+                      <option value="BE">BE</option>
+                      <option value="B.Tech">B.Tech</option>
+                      <option value="Tech"><M class="Tech"></M></option>
+                      </select>
+                </div>
+              </div>
+
+
+      
+              <div class="form-group">
+                <label class="control-label col-sm-2">Adrress <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <textarea name="address" id="address" class="form-control" rows="7" placeholder="Enter Address" ></textarea>
+                </div>
+              </div>
+              
+               <div class="form-group">
+                <label class="control-label col-sm-2">Profile Pic <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" name="img" id="photo" onChange="return check(this)">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="control-label col-sm-2">Resume PDF <span style="color:red">*</span></label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" id="resume" onChange="return check1(this)">
+                </div>
+              </div>
+
+              
+      
+              <div class="form-group">
+                <label class="control-label col-sm-2">Rate <span style="color:red">*</span></label>
+                <div class="col-sm-4">
+                  <input type="range" class="form-control" name="rate" min="0" max="10" >
+                </div>
+              </div>
+
+
+      
+              <div class="form-group">
+                <label class="control-label col-sm-2">Color <span style="color:red">*</span></label>
+                <div class="col-sm-4">
+                  <input type="color" class="form-control" name="color" >
+                </div>
+              </div>
+
+      
+              <div class="form-group">
+                <label class="control-label col-sm-2">DOB <span style="color:red">*</span></label>
+                <div class="col-sm-4">
+                  <input type="date" class="form-control"  placeholder="DOB" name="dob" id="dob">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+               
+                <div class="col-sm-8 col-sm-offset-2">
+                  <input type="submit" class="btn btn-primary btn-lg" value="Registration" id="submit">
+                </div>
+              </div>
+              
+              <h4 align="center"><span id="msg1" style="color:#FF0000; text-transform:capitalize"></span></h4>
+</form>
+
+				</div>
+                </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->
+
+
+
+</body>
+</html>
