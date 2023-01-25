@@ -4,7 +4,7 @@
 }
 /* error message */
 .bvalidator_errmsg {
-	background-color: green;
+	background-color: red	;
 	font-size: 10px;
 	border: 1px solid #999;
 	color: #FFF;

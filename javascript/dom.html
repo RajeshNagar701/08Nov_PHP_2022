@@ -1,8 +1,16 @@
 
 
 
+<p id="text">Hi i am text</p>
+<button id="textbtn" onclick="text()">Click for text</button>
 
+<script>
 
+function text()
+	{
+		document.getElementById("text").innerText="<h1>HI I AM TEXT NEW</h1>";
+	}
+</script>
 
 <h1 id="html">Hello</h1>
 
@@ -11,7 +19,6 @@
 <button id="btn1" onclick="html()">Click 1</button>
 
 <script>
-
 function html()
 	{
 		var htmlcode=document.getElementById("html").innerHTML;

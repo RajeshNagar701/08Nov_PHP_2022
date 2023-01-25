@@ -50,7 +50,7 @@ Flickr, and so many other applications.
 
 //setTimeout(loadDoc, 5000);
 
-
+/*
 function loadDoc() 
 {
   var xhttp;
@@ -84,7 +84,7 @@ status	Returns the status-number of a request
 403: "Forbidden"
 404: "Not Found"
 */
-
+/*
    xhttp.onreadystatechange = function() 
    {  
 	   if(xhttp.readyState==4 || xhttp.status==200)
@@ -97,7 +97,7 @@ status	Returns the status-number of a request
   xhttp.open("GET", "data.php", true);
   xhttp.send();
 }
-
+*/
 
 
 //===========================================================================================================
@@ -116,14 +116,14 @@ $(document).ready(function()
 */
 
 
-/*
+
 
  $(document).ready(function(){
   $("button").click(function(){
     $("#demo").load("data.php");
   });
 });
-*/
+
 
 
 
