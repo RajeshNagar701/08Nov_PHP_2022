@@ -1,6 +1,6 @@
 <?php
 
-$json=file_get_contents('http://localhost/students/02Aug_PHP_Rajesh/Webservices/webservices_form.php');
+$json=file_get_contents('http://localhost/students/08Nov_PHP_2022/Webservices/webservices_form.php');
 
 $arr=json_decode($json); // json econvert to arr
 ?>
