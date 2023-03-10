@@ -26,22 +26,33 @@
                                         <tr>
                                             <th>User ID</th>
                                             <th>User Name</th>
+											<th>User Username</th>
+											<th>User gender</th>
+											<th>User Lag</th>
+											<th>User cid</th>
+											<th>User file</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+									@foreach($data as $d)
                                         <tr class="odd gradeX">
-                                            <td>1</td>
-                                            <td>Raj</td>
+                                            <td>{{$d->id}}</td>
+											<td>{{$d->name}}</td>
+											<td>{{$d->unm}}</td>
+											<td>{{$d->gen}}</td>
+											<td>{{$d->lag}}</td>
+											<td>{{$d->cid}}</td>
+											<td>{{$d->file}}</td>
                                             <td>
 												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-												<a href="#" class="btn btn-success">Status</a>
+												<a href="{{url('manage_user/'.$d->id)}}" class="btn btn-danger">Delete</a>
+												<a href="#" class="btn btn-success">{{$d->status}}</a>
 											</td>
                                         
                                             
                                         </tr>
-                                        
+                                    @endforeach    
                                     </tbody>
                                 </table>
                             </div>

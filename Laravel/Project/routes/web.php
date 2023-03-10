@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\contact2Controller; // simple controller
-use App\Http\Controllers\contact1Controller; // --invokable controller
 use App\Http\Controllers\contactController;
-
 use App\Http\Controllers\customerController;
 /*
 |--------------------------------------------------------------------------
@@ -58,17 +55,13 @@ Route::get('/testimonial', function () {
 });
 
 
-
-
-//Route::get('/contact',contact1Controller::class); // auto call __invokable function
-//Route::get('/contact',[contact2Controller::class,'index']);  call simple controller
-Route::get('/contact',[contactController::class,'index']); // call --resource controller
-
-
 Route::get('/signup',[customerController::class,'index']);
+Route::post('/signup',[customerController::class,'store']);
+
 Route::get('/login',[customerController::class,'login']);  
 
-
+Route::get('/contact',[contactController::class,'index']); // call --resource controller
+Route::post('/contact',[contactController::class,'store']);
 
 //=================================================
 // admin panel Routes
@@ -98,9 +91,10 @@ Route::get('/add_loc', function () {
 Route::get('/manage_loc', function () {
     return view('backend.manage_loc');
 });
-Route::get('/manage_user', function () {
-    return view('backend.manage_user');
-});
-Route::get('/manage_contact', function () {
-    return view('backend.manage_contact');
-});
+
+
+Route::get('/manage_user',[customerController::class,'alldata']);
+Route::get('/manage_user/{id}',[customerController::class,'destroy']);
+
+Route::get('/manage_contact',[contactController::class,'alldata']);
+Route::get('/manage_contact/{id}',[contactController::class,'destroy']);

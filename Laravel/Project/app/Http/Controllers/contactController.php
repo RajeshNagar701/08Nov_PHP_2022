@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\contact;
 
 class contactController extends Controller
 {
@@ -12,6 +13,13 @@ class contactController extends Controller
     public function index()
     {
         return view('frontend.contact');
+    }
+	
+	
+	public function alldata()
+    {
+	   $data=contact::all();
+       return view('backend.manage_contact',['data'=>$data]);
     }
 
     /**
@@ -27,7 +35,13 @@ class contactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact=new contact;
+		$contact->name=$request->name;
+		$contact->email=$request->email;
+		$contact->sub=$request->sub;
+		$contact->msg=$request->msg;
+		$contact->save();
+		return redirect('/contact');
     }
 
     /**
@@ -59,6 +73,8 @@ class contactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data=contact::find($id);
+		$data->delete();
+		return redirect('/manage_contact');
     }
 }

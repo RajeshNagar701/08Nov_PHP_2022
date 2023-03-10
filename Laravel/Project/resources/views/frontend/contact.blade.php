@@ -27,22 +27,23 @@
             <div class="row g-0">
                 <div class="col-lg-7">
                     <div class="bg-primary h-100 p-5">
-                        <form>
+                        <form method="post" action="{{url('/contact')}}">
+							@csrf
                             <div class="row g-3">
                                 <div class="col-6">
-                                    <input type="text" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" name="name" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
                                 </div>
                                 <div class="col-6">
-                                    <input type="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
+                                    <input type="text" name="sub" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control bg-light border-0 px-4 py-3" rows="2" placeholder="Message"></textarea>
+                                    <textarea name="msg" class="form-control bg-light border-0 px-4 py-3" rows="2" placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Send Message</button>
+                                    <input type="submit" name="submit" class="btn btn-secondary w-100 py-3" value="Send Message">
                                 </div>
                             </div>
                         </form>

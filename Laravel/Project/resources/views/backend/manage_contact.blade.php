@@ -22,26 +22,29 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
+                                   <thead>
                                         <tr>
                                             <th>Contact ID</th>
-                                            <th> Name</th>
+                                            <th>User Name</th>
+											<th>User email</th>
+											<th>User sub</th>
+											<th>User Msg</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+									@foreach($data as $d)
                                         <tr class="odd gradeX">
-                                            <td>1</td>
-                                            <td>Ahmedabad</td>
+                                            <td>{{$d->id}}</td>
+											<td>{{$d->name}}</td>
+											<td>{{$d->email}}</td>
+											<td>{{$d->sub}}</td>
+											<td>{{$d->msg}}</td>
                                             <td>
-												<a href="#" class="btn btn-primary">Edit</a>
-												<a href="#" class="btn btn-danger">Delete</a>
-												<a href="#" class="btn btn-success">Status</a>
+												<a href="{{'manage_contact/'.$d->id}}" class="btn btn-danger">Delete</a>
 											</td>
-                                        
-                                            
                                         </tr>
-                                        
+                                    @endforeach    
                                     </tbody>
                                 </table>
                             </div>

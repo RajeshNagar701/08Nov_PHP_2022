@@ -27,26 +27,30 @@
             <div class="row g-0">
                 <div class="col-lg-12">
                     <div class="bg-primary h-100 p-5">
-                        <form action="" method="post">
+                        <form action="{{url('/signup')}}" method="post" enctype="multipart/form-data">
+							@csrf
                             <div class="row g-3">
 								<div class="col-12">
                                     <input type="text" name="name" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
                                 </div>
 								<div class="col-12">
-                                    <input type="email" name="username" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="unm" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="password" name="password" class="form-control bg-light border-0 px-4" placeholder="Your Password" style="height: 55px;">
+                                    <input type="password" name="pass" class="form-control bg-light border-0 px-4" placeholder="Your Password" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
                                     <select name="cid" class="form-control bg-light border-0 px-4" style="height: 55px;">
 										<option>Select Country</option>
+										@foreach($data as $d)
+										<option value="{{$d->id}}">{{$d->cnm}}</option>
+										@endforeach
 									</select>
                                 </div>
 								
 								<div class="col-12 text-white">
-                                    Male :  <input type="radio" name="gender" value="Male" >
-									Female : <input type="radio" name="gender" value="Female">
+                                    Male :  <input type="radio" name="gen" value="Male" >
+									Female : <input type="radio" name="gen" value="Female">
                                 </div>
 								<div class="col-12 text-white">
                                     Hindi :  <input type="checkbox" name="lag[]" value="Hindi" >
@@ -58,7 +62,7 @@
                                 </div>
                                
                                 <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Login</button>
+                                    <input class="btn btn-secondary w-100 py-3" type="submit" name="submit" value="Signup">
                                 </div>
                             </div>
                         </form>
