@@ -8,6 +8,7 @@ use App\Models\customer;
 use App\Models\countrie;
 
 use Hash;
+use Alert;
 
 class customerController extends Controller
 {
@@ -63,6 +64,32 @@ class customerController extends Controller
 	public function login()
     {
         return view('frontend.login');
+    }
+	
+	public function logincheck(Request $request)
+    {
+		$unm=$request->unm;
+		$pass=$request->pass;
+		
+		$data=customer::where('unm','=',$unm)->first();
+		if($data)
+		{
+			if(Hash::check($pass,$data->pass))
+			{
+				Alert::success('Congrats', 'You\'ve Successfully Logined');
+				return redirect('/index');
+			}
+			else
+			{
+				Alert::error('Login Failed', 'Wrong Password');
+				return redirect()->back();
+			}
+		}
+		else
+		{
+				Alert::error('Login Failed', 'Wrong Username');
+				return redirect()->back();
+		}
     }
 	
 	

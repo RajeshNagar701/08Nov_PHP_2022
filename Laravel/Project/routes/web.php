@@ -58,7 +58,8 @@ Route::get('/testimonial', function () {
 Route::get('/signup',[customerController::class,'index']);
 Route::post('/signup',[customerController::class,'store']);
 
-Route::get('/login',[customerController::class,'login']);  
+Route::get('/login',[customerController::class,'login']);
+Route::post('/logincheck',[customerController::class,'logincheck']);  
 
 Route::get('/contact',[contactController::class,'index']); // call --resource controller
 Route::post('/contact',[contactController::class,'store']);

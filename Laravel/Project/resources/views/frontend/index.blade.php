@@ -3,6 +3,7 @@
 @extends('frontend.layout.main')
 
 @section('main_container')
+@include('sweetalert::alert')
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">

@@ -1,6 +1,7 @@
 @extends('frontend.layout.main')
 
 @section('main_container')
+@include('sweetalert::alert')
 
     <!-- Hero Start -->
     <div class="container-fluid bg-primary py-5 bg-hero mb-5">
@@ -27,18 +28,19 @@
             <div class="row g-0">
                 <div class="col-lg-12">
                     <div class="bg-primary h-100 p-5">
-                        <form action="" method="post">
+                        <form action="{{url('/logincheck')}}" method="post">
+						@csrf
                             <div class="row g-3">
 								<div class="col-12">
-                                    <input type="email" name="username" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                    <input type="text" name="unm" class="form-control bg-light border-0 px-4" placeholder="Your Username" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="password" name="password" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                                    <input type="password" name="pass" class="form-control bg-light border-0 px-4" placeholder="Your Password" style="height: 55px;">
                                 </div>
                                 
                                
                                 <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Login</button>
+                                    <input name="submit" class="btn btn-secondary w-100 py-3" type="submit" value="Login">
                                 </div>
 								<div class="col-12">
                                     <a href="{{url('/signup')}}" class="text-white w-100 py-3">If not register then click Here</a>
