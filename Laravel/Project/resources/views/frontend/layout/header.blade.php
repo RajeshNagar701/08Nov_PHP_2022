@@ -84,8 +84,19 @@
                     </div>
                 </div>
                 <a href="{{url('/contact')}}" class="nav-item nav-link">Contact</a>
-				<a href="{{url('/login')}}" class="nav-item nav-link">Login</a>
-            </div>
+				@if(session()->has('user_id'))
+					<div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{session('name')}}</a>
+                    <div class="dropdown-menu m-0">
+						<a href="{{url('/profile')}}" class="dropdown-item">Profile</a>
+						<a href="{{url('/userlogout')}}" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+					
+				@else	
+					<a href="{{url('/login')}}" class="nav-item nav-link">Login</a>
+				@endif
+			</div>
         </div>
     </nav>
     <!-- Navbar End -->

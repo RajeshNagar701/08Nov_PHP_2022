@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\customerController;
+use App\Http\Controllers\adminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,16 +62,22 @@ Route::post('/signup',[customerController::class,'store']);
 Route::get('/login',[customerController::class,'login']);
 Route::post('/logincheck',[customerController::class,'logincheck']);  
 
+Route::get('/userlogout',[customerController::class,'userlogout']);  
+
 Route::get('/contact',[contactController::class,'index']); // call --resource controller
 Route::post('/contact',[contactController::class,'store']);
+
+
 
 //=================================================
 // admin panel Routes
 
+Route::get('/admin',[adminController::class,'admin']); 
+Route::post('/adminlogin',[adminController::class,'logincheck']);  
 
-Route::get('/admin', function () {
-    return view('backend.index');
-});
+Route::get('/adminlogout',[adminController::class,'adminlogout']);  
+
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 });

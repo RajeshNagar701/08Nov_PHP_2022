@@ -9,7 +9,7 @@ use App\Models\countrie;
 
 use Hash;
 use Alert;
-
+use Session;
 class customerController extends Controller
 {
     /**
@@ -76,6 +76,11 @@ class customerController extends Controller
 		{
 			if(Hash::check($pass,$data->pass))
 			{
+				//session create
+				session()->put('unm',$data->unm);
+				session()->put('name',$data->name);
+				session()->put('user_id',$data->id);
+				
 				Alert::success('Congrats', 'You\'ve Successfully Logined');
 				return redirect('/index');
 			}
@@ -91,6 +96,15 @@ class customerController extends Controller
 				return redirect()->back();
 		}
     }
+	
+	public function userlogout()
+    {
+		session()->pull('user_id');
+		session()->pull('unm');
+		session()->pull('name');
+		Alert::success('Congrats', 'You\'ve Successfully Logout');
+		return redirect('/index');
+	}
 	
 	
 	

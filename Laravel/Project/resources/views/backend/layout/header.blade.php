@@ -1,3 +1,18 @@
+<?php
+if(session()->has('admin_id'))	
+{
+	
+}
+else
+{
+	echo "<script>
+		window.location='/admin';
+	</script>";
+}
+?>
+	
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -238,7 +253,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="{{url('/adminlogout')}}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -263,7 +278,7 @@
                                 <img src="{{url('backend/assets/img/user.jpg')}}" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Jonny <strong>Deen</strong></div>
+                                <div>{{session('anm')}} <strong>{{session('admin_id')}}</strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
