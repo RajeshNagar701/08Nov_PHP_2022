@@ -21,6 +21,14 @@ class customerController extends Controller
         return view('frontend.signup',['data'=>$data]);
     }
 	
+	public function profile()
+    {
+		$data=customer::where('id','=',session('user_id'))->first();
+        return view('frontend.profile',['data'=>$data]);
+    }
+	
+	
+	
 	public function alldata()
     {
 	   $data=customer::all();  	
@@ -119,17 +127,49 @@ class customerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+	
     public function edit(string $id)
     {
-        //
+        $countrydata=countrie::all();
+		$data=customer::where('id','=',$id)->first();
+        return view('frontend.editprofile',['data'=>$data,'countrydata'=>$countrydata]);
     }
 
     /**
      * Update the specified resource in storage.
      */
+	 
+	 
     public function update(Request $request, string $id)
     {
-        //
+        $data=customer::find($id);
+		echo $data->file;
+		exit();
+		$data->name=$request->name;
+		$data->unm=$request->unm;
+		$data->gen=$request->gen;
+		$data->lag=implode(",",$request->lag);
+		$data->cid=$request->cid;
+		
+		//img upload
+		
+			
+		if($request->hasFile('file'))
+		{
+			$old_img=$data->file;
+			
+			$file=$request->file('file');	
+			$filename=time().'_img.'.$request->file('file')->getClientOriginalExtension();
+			$file->move('upload/customer/',$filename);  // use move for move image in public/images
+			$data->file=$filename; // name store in db
+			
+			
+			unlink('upload/customer/'.$old_img);
+		}
+		$data->save();
+		Alert::success('Congrats', 'You\'ve Successfully Update');
+		return redirect('/profile');
+		
     }
 
     /**

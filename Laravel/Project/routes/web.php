@@ -62,6 +62,11 @@ Route::post('/signup',[customerController::class,'store']);
 Route::get('/login',[customerController::class,'login']);
 Route::post('/logincheck',[customerController::class,'logincheck']);  
 
+Route::get('/profile',[customerController::class,'profile']);
+Route::get('/editprofile/{id}',[customerController::class,'edit']);
+
+Route::post('/updateprofile/{id}',[customerController::class,'update']);
+
 Route::get('/userlogout',[customerController::class,'userlogout']);  
 
 Route::get('/contact',[contactController::class,'index']); // call --resource controller
