@@ -48,6 +48,14 @@ class customerController extends Controller
      */
     public function store(Request $request)
     {
+		$validated = $request->validate([
+		'name' => 'required|alpha',
+        'unm' => 'required|unique:customers|max:255',
+        'pass' => 'required',
+		'cid' => 'required',
+		'file' => 'required|mimes:jpg,jpeg,png,gif'
+		
+		]);
         $data=new customer;
 		$data->name=$request->name;
 		$data->unm=$request->unm;
@@ -84,13 +92,21 @@ class customerController extends Controller
 		{
 			if(Hash::check($pass,$data->pass))
 			{
-				//session create
-				session()->put('unm',$data->unm);
-				session()->put('name',$data->name);
-				session()->put('user_id',$data->id);
-				
-				Alert::success('Congrats', 'You\'ve Successfully Logined');
-				return redirect('/index');
+				if($data->status=="Unblock")
+				{
+					//session create
+					session()->put('unm',$data->unm);
+					session()->put('name',$data->name);
+					session()->put('user_id',$data->id);
+					
+					Alert::success('Congrats', 'You\'ve Successfully Logined');
+					return redirect('/index');
+				}
+				else
+				{
+					Alert::error('Login Failed', 'Blocked Account');
+					return redirect()->back();
+				}
 			}
 			else
 			{
@@ -185,5 +201,27 @@ class customerController extends Controller
 		}
 		$data->delete();
 		return redirect('/manage_user');
+    }
+	
+	
+	public function status(Request $request, string $id)
+    {
+        $data=customer::find($id);
+		$status=$data->status;
+		if($status=="Unblock")
+		{
+			$data->status="Block";
+			$data->save();
+			Alert::success('Congrats', 'You\'ve Successfully Block');
+			return redirect('/manage_user');
+		}
+		else
+		{
+			$data->status="Unblock";
+			$data->save();
+			Alert::success('Congrats', 'You\'ve Successfully Unblock');
+			return redirect('/manage_user');
+		}
+		
     }
 }

@@ -108,6 +108,7 @@ Route::get('/manage_loc', function () {
 
 Route::get('/manage_user',[customerController::class,'alldata']);
 Route::get('/manage_user/{id}',[customerController::class,'destroy']);
+Route::get('/status_user/{id}',[customerController::class,'status']);
 
 Route::get('/manage_contact',[contactController::class,'alldata']);
 Route::get('/manage_contact/{id}',[contactController::class,'destroy']);

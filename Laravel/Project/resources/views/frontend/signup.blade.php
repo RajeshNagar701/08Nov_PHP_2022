@@ -31,13 +31,23 @@
 							@csrf
                             <div class="row g-3">
 								<div class="col-12">
-                                    <input type="text" name="name" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" name="name" value="{{old('name')}}" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+									@error('name')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
+
                                 </div>
 								<div class="col-12">
-                                    <input type="email" name="unm" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" name="unm" value="{{old('unm')}}" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+									@error('unm')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
                                 </div>
                                 <div class="col-12">
-                                    <input type="password" name="pass" class="form-control bg-light border-0 px-4" placeholder="Your Password" style="height: 55px;">
+                                    <input type="password" name="pass" value="{{old('pass')}}" class="form-control bg-light border-0 px-4" placeholder="Your Password" style="height: 55px;">
+									@error('pass')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
                                 </div>
                                 <div class="col-12">
                                     <select name="cid" class="form-control bg-light border-0 px-4" style="height: 55px;">
@@ -46,19 +56,25 @@
 										<option value="{{$d->id}}">{{$d->cnm}}</option>
 										@endforeach
 									</select>
+									@error('cid')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
                                 </div>
 								
 								<div class="col-12 text-white">
-                                    Male :  <input type="radio" name="gen" value="Male" >
+                                    Male :  <input type="radio" name="gen" value="Male" checked>
 									Female : <input type="radio" name="gen" value="Female">
                                 </div>
 								<div class="col-12 text-white">
-                                    Hindi :  <input type="checkbox" name="lag[]" value="Hindi" >
+                                    Hindi :  <input type="checkbox" name="lag[]" value="Hindi" checked>
 									English : <input type="checkbox" name="lag[]" value="English">
 									Gujarati : <input type="checkbox" name="lag[]" value="Gujarati">
                                 </div>
 								<div class="col-12">
                                     <input type="file" name="file" class="form-control bg-light border-0 px-4" style="height: 55px;">
+									@error('file')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
                                 </div>
                                
                                 <div class="col-12">

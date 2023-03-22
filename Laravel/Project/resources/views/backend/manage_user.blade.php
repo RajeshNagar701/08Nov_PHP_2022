@@ -45,9 +45,8 @@
 											<td>{{$d->cid}}</td>
 											<td>{{$d->file}}</td>
                                             <td>
-												<a href="#" class="btn btn-primary">Edit</a>
 												<a href="{{url('manage_user/'.$d->id)}}" class="btn btn-danger">Delete</a>
-												<a href="#" class="btn btn-success">{{$d->status}}</a>
+												<a href="{{url('status_user/'.$d->id)}}" class="btn btn-success">{{$d->status}}</a>
 											</td>
                                         
                                             
