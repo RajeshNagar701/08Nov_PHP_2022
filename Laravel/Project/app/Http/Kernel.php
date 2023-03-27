@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
+		
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -28,6 +29,9 @@ class Kernel extends HttpKernel
      *
      * @var array<string, array<int, class-string|string>>
      */
+	 
+	  // Groups Route Middleware
+	 
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -43,6 +47,13 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+			// Call created own froup Route Middleware for particular grouop of routes
+		
+		'afterlogin' => [ \App\Http\Middleware\afterlogin::class, ],
+		'beforelogin' =>[ \App\Http\Middleware\beforelogin::class, ],
+		'adminafterlogin' => [ \App\Http\Middleware\adminafterlogin::class, ],
+		'adminbeforelogin' =>[ \App\Http\Middleware\adminbeforelogin::class, ],
+	
     ];
 
     /**
@@ -52,7 +63,18 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
+	 
+	 
+	 
+	 
+	 // Simple Route Middleware
     protected $middlewareAliases = [
+	
+		// Call created aon Route Middleware particular single routes
+		
+		'afterlogin' => \App\Http\Middleware\afterlogin::class,
+		'beforelogin' => \App\Http\Middleware\beforelogin::class,
+		
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

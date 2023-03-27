@@ -55,19 +55,23 @@ Route::get('/testimonial', function () {
     return view('frontend.testimonial');
 });
 
+// call group Routes middleware
+Route::group(['middleware'=>['beforelogin']],function()
+{
+	Route::get('/signup',[customerController::class,'index'])->middleware('beforelogin'); // call single Routes middleware
+	Route::post('/signup',[customerController::class,'store']);
+	Route::get('/login',[customerController::class,'login']);
+	Route::post('/logincheck',[customerController::class,'logincheck']);  
+});
 
-Route::get('/signup',[customerController::class,'index']);
-Route::post('/signup',[customerController::class,'store']);
 
-Route::get('/login',[customerController::class,'login']);
-Route::post('/logincheck',[customerController::class,'logincheck']);  
-
-Route::get('/profile',[customerController::class,'profile']);
-Route::get('/editprofile/{id}',[customerController::class,'edit']);
-
-Route::post('/updateprofile/{id}',[customerController::class,'update']);
-
-Route::get('/userlogout',[customerController::class,'userlogout']);  
+Route::group(['middleware'=>['afterlogin']],function()
+{
+	Route::get('/profile',[customerController::class,'profile'])->middleware('afterlogin'); // call single Routes middleware
+	Route::get('/editprofile/{id}',[customerController::class,'edit']);
+	Route::post('/updateprofile/{id}',[customerController::class,'update']);
+	Route::get('/userlogout',[customerController::class,'userlogout']);  
+});
 
 Route::get('/contact',[contactController::class,'index']); // call --resource controller
 Route::post('/contact',[contactController::class,'store']);
@@ -77,38 +81,40 @@ Route::post('/contact',[contactController::class,'store']);
 //=================================================
 // admin panel Routes
 
-Route::get('/admin',[adminController::class,'admin']); 
-Route::post('/adminlogin',[adminController::class,'logincheck']);  
 
-Route::get('/adminlogout',[adminController::class,'adminlogout']);  
-
-
-Route::get('/dashboard', function () {
-    return view('backend.dashboard');
-});
-Route::get('/add_emp', function () {
-    return view('backend.add_emp');
-});
-Route::get('/manage_emp', function () {
-    return view('backend.manage_emp');
-});
-Route::get('/add_cat', function () {
-    return view('backend.add_cat');
-});
-Route::get('/manage_cat', function () {
-    return view('backend.manage_cat');
-});
-Route::get('/add_loc', function () {
-    return view('backend.add_loc');
-});
-Route::get('/manage_loc', function () {
-    return view('backend.manage_loc');
+Route::group(['middleware'=>['adminbeforelogin']],function()
+{
+	Route::get('/admin',[adminController::class,'admin']); 
+	Route::post('/adminlogin',[adminController::class,'logincheck']);  
 });
 
-
-Route::get('/manage_user',[customerController::class,'alldata']);
-Route::get('/manage_user/{id}',[customerController::class,'destroy']);
-Route::get('/status_user/{id}',[customerController::class,'status']);
-
-Route::get('/manage_contact',[contactController::class,'alldata']);
-Route::get('/manage_contact/{id}',[contactController::class,'destroy']);
+Route::group(['middleware'=>['adminafterlogin']],function()
+{
+	Route::get('/adminlogout',[adminController::class,'adminlogout']);  
+	Route::get('/dashboard', function () {
+		return view('backend.dashboard');
+	});
+	Route::get('/add_emp', function () {
+		return view('backend.add_emp');
+	});
+	Route::get('/manage_emp', function () {
+		return view('backend.manage_emp');
+	});
+	Route::get('/add_cat', function () {
+		return view('backend.add_cat');
+	});
+	Route::get('/manage_cat', function () {
+		return view('backend.manage_cat');
+	});
+	Route::get('/add_loc', function () {
+		return view('backend.add_loc');
+	});
+	Route::get('/manage_loc', function () {
+		return view('backend.manage_loc');
+	});
+	Route::get('/manage_user',[customerController::class,'alldata']);
+	Route::get('/manage_user/{id}',[customerController::class,'destroy']);
+	Route::get('/status_user/{id}',[customerController::class,'status']);
+	Route::get('/manage_contact',[contactController::class,'alldata']);
+	Route::get('/manage_contact/{id}',[contactController::class,'destroy']);
+});
