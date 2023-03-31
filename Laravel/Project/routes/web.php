@@ -113,8 +113,12 @@ Route::group(['middleware'=>['adminafterlogin']],function()
 		return view('backend.manage_loc');
 	});
 	Route::get('/manage_user',[customerController::class,'alldata']);
+	Route::post('/manage_user',[customerController::class,'alldata']);
+	
 	Route::get('/manage_user/{id}',[customerController::class,'destroy']);
 	Route::get('/status_user/{id}',[customerController::class,'status']);
+	
+	
 	Route::get('/manage_contact',[contactController::class,'alldata']);
 	Route::get('/manage_contact/{id}',[contactController::class,'destroy']);
 });

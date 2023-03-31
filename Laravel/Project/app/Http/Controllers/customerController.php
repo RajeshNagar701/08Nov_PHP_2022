@@ -29,10 +29,22 @@ class customerController extends Controller
 	
 	
 	
-	public function alldata()
+	public function alldata(Request $request)
     {
-	   $data=customer::all();  	
-       return view('backend.manage_user',['data'=>$data]);
+		$value=$request->search;
+		if(!($value=="" || $value==null))
+		{
+			$data=customer::where('name','LIKE','%'.$value.'%')->get();
+		}
+		else
+		{
+			$data=customer::all();
+		}
+		//$data=customer::paginate(1);
+        //$data = customer::orderBy('name', 'ASC')->orderBy('unm', 'DESC')->get();
+		//$data=customer::join('countries', 'customers.cid', '=','countries.id')->get(['customers.*', 'countries.cnm','countries.id as mycid']);
+	    
+       return view('backend.manage_user',['data'=>$data,'value'=>$value]);
     }
 
     /**

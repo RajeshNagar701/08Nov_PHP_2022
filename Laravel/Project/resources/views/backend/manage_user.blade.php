@@ -20,6 +20,14 @@
                             Manage User
                         </div>
                         <div class="panel-body">
+						
+							<form action="{{url('/manage_user')}}" method="post">
+								@csrf
+								<input type="search" name="search" value="{{$value}}" placeholder="Search By Name">
+								<input type="submit" name="submit" class="btn btn-primary">
+							</form>
+							<br>
+							<br>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
@@ -51,7 +59,10 @@
                                         
                                             
                                         </tr>
-                                    @endforeach    
+                                    @endforeach   
+										<tr>
+										
+										</tr>
                                     </tbody>
                                 </table>
                             </div>
