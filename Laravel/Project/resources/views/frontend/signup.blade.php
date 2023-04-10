@@ -26,6 +26,11 @@
             </div>
             <div class="row g-0">
                 <div class="col-lg-12">
+					@if(session('success'))
+					<div class="alert alert-success">
+						{{session('success')}}
+					</div>
+					@endif	
                     <div class="bg-primary h-100 p-5">
                         <form action="{{url('/signup')}}" method="post" enctype="multipart/form-data">
 							@csrf

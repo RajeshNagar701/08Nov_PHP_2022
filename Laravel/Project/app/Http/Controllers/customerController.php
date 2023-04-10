@@ -10,6 +10,12 @@ use App\Models\countrie;
 use Hash;
 use Alert;
 use Session;
+
+// load mail setup
+use App\Mail\welcomemail;
+use Mail;
+
+
 class customerController extends Controller
 {
     /**
@@ -26,6 +32,7 @@ class customerController extends Controller
 		$data=customer::where('id','=',session('user_id'))->first();
         return view('frontend.profile',['data'=>$data]);
     }
+	
 	
 	
 	
@@ -69,9 +76,9 @@ class customerController extends Controller
 		
 		]);
         $data=new customer;
-		$data->name=$request->name;
-		$data->unm=$request->unm;
-		$data->pass=$request->pass;
+	$name=$data->name=$request->name;
+	$email=$data->unm=$request->unm;
+	$pass=$data->pass=$request->pass;
 		$data->pass=Hash::make($request->pass);
 		$data->gen=$request->gen;
 		$data->lag=implode(",",$request->lag);
@@ -85,8 +92,15 @@ class customerController extends Controller
 		$data->file=$filename; // name store in db
 		
 		$data->save();
-		return redirect()->back();
 		
+		$emaildata=array("email"=>$email,"name"=>$name,"pass"=>$pass);
+		
+		Mail::to($email)->send(new welcomemail($emaildata));
+		
+		
+		
+		// session()->flash('success', 'Register Success'); // create flash session
+		return redirect()->back()->with('success', 'Register Success');
     }
 	
 	public function login()
