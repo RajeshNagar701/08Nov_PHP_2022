@@ -21,7 +21,14 @@ class contactController extends Controller
 	   $data=contact::all();
        return view('backend.manage_contact',['data'=>$data]);
     }
-
+	
+	public function getdata(Request $request)
+    {
+		$name=$request->name;
+		$data['name']=contact::where('name','LIKE',$name.'%')->get();
+        return response()->json($data);	
+    }
+	
     /**
      * Show the form for creating a new resource.
      */

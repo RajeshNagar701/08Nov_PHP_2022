@@ -1,10 +1,11 @@
 @extends('backend.layout.main')
 
 @section('main_container')
+
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
-            
+      
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
@@ -19,9 +20,17 @@
                         <div class="panel-heading">
                             Manage Contact
                         </div>
+							
+								
+							
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+						<form method="post">
+							@csrf
+							<input type="search" name="name" id="name" class="form-control" placeholder="Search By Name">
+                        </form>    
+							<br><br>
+							<div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="table">
                                    <thead>
                                         <tr>
                                             <th>Contact ID</th>
@@ -30,6 +39,7 @@
 											<th>User sub</th>
 											<th>User Msg</th>
                                             <th>Action</th>
+											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -71,11 +81,35 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="{{url('backend/assets/plugins/dataTables/jquery.dataTables.js')}}"></script>
     <script src="{{url('backend/assets/plugins/dataTables/dataTables.bootstrap.js')}}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
     <script>
         $(document).ready(function () {
             $('#dataTables-example').dataTable();
         });
     </script>
+	
+	<script>
+		$('#name').on('keypress', function () {
+                var name = this.value;
+                $('#table').html('');
+                $.ajax({
+				url:"{{url('/getdata')}}",
+				type: "POST",
+				data: {
+                    name: name,
+				_token: '{{csrf_token()}}'
+				},
+				
+				success: function(result) {
+                        $('#table').html('');
+                        $.each(result.name, function (key, value) {
+                            $('#table').append('<tr> <td>' + value.id + '</td><td>' + value.name + '</td><td>' + value.email + '</td></tr>');
+                        });
+                        
+                    }
+                });
+            });
+	</script>
 
 </body>
 

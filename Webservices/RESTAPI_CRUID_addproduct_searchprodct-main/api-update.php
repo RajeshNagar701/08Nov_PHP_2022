@@ -7,9 +7,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$pid = '12';//$data["id"];
-$pname ='Audi Car';// $data["name"];
-$pprice ='300000';//$data["price"];
+$pid = $data["id"];
+$pname = $data["name"];
+$pprice =  $data["price"];
 
 require_once "dbconfig.php";
 
@@ -24,6 +24,6 @@ if(mysqli_query($conn, $query) or die("Update Query Failed"))
 else
 {	
 	echo json_encode(array("message" => "Failed Product Not Updated", "status" => false));	
-}
+}	
 
 ?>

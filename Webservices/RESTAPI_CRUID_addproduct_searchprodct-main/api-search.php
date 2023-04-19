@@ -6,7 +6,7 @@ header("Acess-Control-Allow-Origin: *");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$psearch = "LG";//$data["search"];
+$psearch =$data["search"];
 
 require_once "dbconfig.php";
 

@@ -7,8 +7,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $data_arr = json_decode(file_get_contents("php://input"), true);
 
-$pname = "car";//$data_arr["name"]; // value of pname
-$pprice = "290000";//$data_arr["price"]; // value of price
+$pname = $data_arr["name"]; // value of pname 
+$pprice = $data_arr["price"]; // value of price
 
 require_once "dbconfig.php";
 

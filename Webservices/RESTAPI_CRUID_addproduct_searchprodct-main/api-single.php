@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 header("Acess-Control-Allow-Origin: *");
 
 $data = json_decode(file_get_contents("php://input"), true);
-$product_id = "2";//$data["product_id"];
+$product_id =$data["product_id"];
 
 require_once "dbconfig.php";
 

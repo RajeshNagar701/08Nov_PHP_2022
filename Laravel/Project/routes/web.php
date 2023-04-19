@@ -121,4 +121,5 @@ Route::group(['middleware'=>['adminafterlogin']],function()
 	
 	Route::get('/manage_contact',[contactController::class,'alldata']);
 	Route::get('/manage_contact/{id}',[contactController::class,'destroy']);
+	Route::post('/getdata',[contactController::class,'getdata']);//Ajax
 });

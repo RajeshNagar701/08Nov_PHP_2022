@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$pid = 12;//$data["id"];
+$pid =$data["id"];
 
 require_once "dbconfig.php";
 

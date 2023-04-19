@@ -24,6 +24,8 @@ class customerController extends Controller
     public function index()
     {
 		$data=countrie::all();
+		//p($data);
+		//die;
         return view('frontend.signup',['data'=>$data]);
     }
 	
@@ -96,7 +98,6 @@ class customerController extends Controller
 		$emaildata=array("email"=>$email,"name"=>$name,"pass"=>$pass);
 		
 		Mail::to($email)->send(new welcomemail($emaildata));
-		
 		
 		
 		// session()->flash('success', 'Register Success'); // create flash session

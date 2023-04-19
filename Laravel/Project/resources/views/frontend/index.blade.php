@@ -83,6 +83,7 @@
                     <div class="mb-3 pb-2">
                         <h6 class="text-primary text-uppercase">About Us</h6>
                         <h1 class="display-5">We Produce Organic Food For Your Family</h1>
+						<h3>New Date Format: {{ custome_date('2022-02-26','m/d/Y')  }}</h3>
                     </div>
                     <p class="mb-4">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
                     <div class="row gx-5 gy-4">
